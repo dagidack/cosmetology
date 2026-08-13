@@ -1,1 +1,30 @@
+backend:
+  name: github
+  repo: ваш-логин/название-репозитория # ЗАМЕНИТЕ НА СВОИ (например, dagidack/cosmetology)
+  branch: main # Укажите ветку (обычно main или master)
+  app_id: СЮДА_МЫ_ВСТАВИМ_КЛЮЧ_НА_ШАГЕ_2
 
+# Куда будут загружаться фотографии
+media_folder: "images"
+public_folder: "images"
+
+# Настройки полей в админке
+collections:
+  - name: "site_data"
+    label: "Управление сайтом"
+    files:
+      - label: "Услуги и Галерея"
+        name: "content"
+        file: "data.json" # Сюда админка будет сохранять ваши тексты
+        fields:
+          - label: "Услуги"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Название услуги", name: "title", widget: "string" }
+              - { label: "Цена", name: "price", widget: "string" }
+          
+          - label: "Галерея работ"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Фотография", name: "image", widget: "image" }
