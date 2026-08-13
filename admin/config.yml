@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ваш-логин/название-репозитория # ЗАМЕНИТЕ НА СВОИ (например, dagidack/cosmetology)
+  repo: dagidack # ЗАМЕНИТЕ НА СВОИ (например, dagidack/cosmetology)
   branch: main # Укажите ветку (обычно main или master)
   app_id:  SHA256:ZydYDz1YDHX6MobHeMwLD9MskuOPR4PfzqnzQWAlCyk=
 
