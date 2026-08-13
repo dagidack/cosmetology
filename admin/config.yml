@@ -2,7 +2,7 @@ backend:
   name: github
   repo: dagidack/cosmetology # ЗАМЕНИТЕ НА СВОИ (например, dagidack/cosmetology)
   branch: main # Укажите ветку (обычно main или master)
-  app_id:  SHA256:ZydYDz1YDHX6MobHeMwLD9MskuOPR4PfzqnzQWAlCyk=
+  app_id:  4582086
 
 # Куда будут загружаться фотографии
 media_folder: "images"
