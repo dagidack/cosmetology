@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Care Cosmetology | SKY-kosmetologi Raumalla</title>
-    <meta name="description" id="meta-description" content="Beauty Care Cosmetology – SKY-kosmetologi Maria tarjoaa kasvohoidot, jalkahoidot ja kulmien hoitoja Raumalla. Varaa aika netissä 24/7.">
-    <meta name="keywords" id="meta-keywords" content="kosmetologi Rauma, kasvohoito Rauma, kauneushoitola Rauma, SKY-kosmetologi, jalkahoito, kulmien muotoilu, ajanvaraus">
+    <title>Beauty Care Cosmetology | SKY-kosmetologi Raumalla, Suomi</title>
+    <meta name="description" id="meta-description" content="Beauty Care Cosmetology – SKY-kosmetologi Maria tarjoaa kasvohoitoja, jalkahoitoja, kulmien muotoilua ja ripsien värjäystä Raumalla, Suomessa. Varaa aika netissä 24/7.">
+    <meta name="keywords" id="meta-keywords" content="kosmetologi Rauma, kosmetologi Raumalla, kauneushoitola Rauma, kauneushoitola Raumalla, SKY-kosmetologi, kasvohoito Rauma, jalkahoito Rauma, kulmien muotoilu Rauma, ripsien värjäys Rauma, ajanvaraus Raumalla, beauty care Rauma">
     <meta name="author" content="Beauty Care Cosmetology">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="FI-17">
@@ -40,10 +40,14 @@
         "@context": "https://schema.org",
         "@type": "BeautySalon",
         "name": "Beauty Care Cosmetology",
-        "description": "SKY-kosmetologi Maria tarjoaa kasvohoidot, jalkahoidot ja kulmien hoitoja Raumalla.",
+        "description": "SKY-kosmetologi Maria tarjoaa kasvohoitoja, jalkahoitoja, kulmien muotoilua ja ripsien värjäystä Raumalla, Suomessa.",
         "url": "https://beautycare.fi/",
         "telephone": "+358401234567",
         "email": "info@beautycare.fi",
+        "areaServed": {
+            "@type": "City",
+            "name": "Rauma, Finland"
+        },
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Kauppakatu 1",
@@ -61,6 +65,13 @@
         ],
         "priceRange": "€€",
         "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=1200",
+        "serviceType": [
+            "Facial treatments",
+            "Pedicures",
+            "Eyebrow shaping",
+            "Lash and brow tinting",
+            "Beauty treatments in Rauma"
+        ],
         "sameAs": [
             "https://www.facebook.com/beautycarecosmetology",
             "https://www.instagram.com/beautycarecosmetology",
@@ -560,22 +571,44 @@
                         <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
                         <script>
                         (function() {
-                          var target = document.currentScript;
-                          window.addEventListener('load', function() {
-                            calendar.schedulingButton.load({
-                              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0JhyRnhd3V-z-O2h67c4O4KQfknGFEWGPHjJmhEbsJDZUZfJtDYZ1BYqJAuy0td0g0rLUFRNhQ?gv=true',
-                              color: '#039BE5',
-                              label: 'Создать встречу',
-                              target,
-                            });
-                          });
+                          const scheduleUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0JhyRnhd3V-z-O2h67c4O4KQfknGFEWGPHjJmhEbsJDZUZfJtDYZ1BYqJAuy0td0g0rLUFRNhQ?gv=true';
+                          const targetId = 'google-booking-container';
+                          const fallbackId = 'google-booking-fallback';
+                          const label = translations && translations[currentLang] ? translations[currentLang].booking_button_label : 'Varaa aika';
+
+                          function initScheduleButton() {
+                            if (window.calendar && window.calendar.schedulingButton && typeof window.calendar.schedulingButton.load === 'function') {
+                              window.calendar.schedulingButton.load({
+                                url: scheduleUrl,
+                                color: '#7A5C3A',
+                                label: label,
+                                target: targetId
+                              });
+                              return true;
+                            }
+
+                            const fallback = document.getElementById(fallbackId);
+                            if (fallback) fallback.classList.remove('hidden');
+                            return false;
+                          }
+
+                          if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initScheduleButton);
+                          } else {
+                            initScheduleButton();
+                          }
                         })();
                         </script>
                         <!-- end Google Calendar Appointment Scheduling -->
 
-                        <!-- Google Calendar Appointment Scheduling begin -->
-                        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0JhyRnhd3V-z-O2h67c4O4KQfknGFEWGPHjJmhEbsJDZUZfJtDYZ1BYqJAuy0td0g0rLUFRNhQ?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-                        <!-- end Google Calendar Appointment Scheduling -->
+                        <div id="google-booking-container" class="mb-4"></div>
+                        <div id="google-booking-fallback" class="hidden text-center">
+                            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0JhyRnhd3V-z-O2h67c4O4KQfknGFEWGPHjJmhEbsJDZUZfJtDYZ1BYqJAuy0td0g0rLUFRNhQ?gv=true" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-skin-600 text-white font-medium hover:bg-skin-700 transition-colors">
+                                Записаться на прием
+                            </a>
+                        </div>
+
+                        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0JhyRnhd3V-z-O2h67c4O4KQfknGFEWGPHjJmhEbsJDZUZfJtDYZ1BYqJAuy0td0g0rLUFRNhQ?gv=true" style="border: 0" width="100%" height="600" frameborder="0" loading="lazy" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -634,36 +667,36 @@
                 htmlLang: 'fi',
                 ogLocale: 'fi_FI',
                 title: 'Beauty Care Cosmetology | SKY-kosmetologi Raumalla, Suomi',
-                description: 'Beauty Care Cosmetology – SKY-kosmetologi Maria tarjoaa kasvohoidot, jalkahoidot, kulmien muotoilun ja kauneudenhoitopalvelut Raumalla, Suomessa. Varaa aika netissä 24/7.',
-                keywords: 'kosmetologi Rauma, kosmetologi Raumalla, kauneushoitola Rauma, SKY-kosmetologi, kasvohoito Rauma, jalkahoito Rauma, kulmien muotoilu, ripsien värjäys, ajanvaraus Raumalla, kauneudenhoito Suomi'
+                description: 'Beauty Care Cosmetology – SKY-kosmetologi Maria tarjoaa kasvohoitoja, jalkahoitoja, kulmien muotoilua ja ripsien värjäystä Raumalla, Suomessa. Varaa aika netissä 24/7.',
+                keywords: 'kosmetologi Rauma, kosmetologi Raumalla, kauneushoitola Rauma, kauneushoitola Raumalla, SKY-kosmetologi, kasvohoito Rauma, jalkahoito Rauma, kulmien muotoilu Rauma, ripsien värjäys Rauma, ajanvaraus Raumalla, beauty care Rauma'
             },
             sv: {
                 htmlLang: 'sv',
                 ogLocale: 'sv_FI',
                 title: 'Beauty Care Cosmetology | SKY-kosmetolog i Raumo, Finland',
-                description: 'Beauty Care Cosmetology – SKY-kosmetolog Maria erbjuder ansiktsbehandlingar, fotvård, brynformning och skönhetsbehandlingar i Raumo, Finland. Boka tid online dygnet runt.',
-                keywords: 'kosmetolog Raumo, skönhetssalong Raumo, ansiktsbehandling Raumo, SKY-kosmetolog, fotvård Raumo, brynformning, bokning Raumo, skönhetsvård Finland'
+                description: 'Beauty Care Cosmetology – SKY-kosmetolog Maria erbjuder ansiktsbehandlingar, fotvård, brynformning och fransfärgning i Raumo, Finland. Boka tid online dygnet runt.',
+                keywords: 'kosmetolog Raumo, skönhetssalong Raumo, ansiktsbehandling Raumo, fotvård Raumo, brynformning Raumo, fransfärgning Raumo, SKY-kosmetolog, bokning Raumo, skönhetsvård Finland'
             },
             en: {
                 htmlLang: 'en',
                 ogLocale: 'en_FI',
                 title: 'Beauty Care Cosmetology | Certified Cosmetologist in Rauma, Finland',
-                description: 'Beauty Care Cosmetology – certified SKY cosmetologist Maria offers facials, pedicures and brow treatments in Rauma, Finland. Book online 24/7.',
-                keywords: 'cosmetologist Rauma Finland, beauty salon Rauma Finland, facial treatment Rauma, SKY cosmetologist, pedicure Rauma, eyebrow shaping, appointment booking Rauma, beauty care Finland'
+                description: 'Beauty Care Cosmetology – certified SKY cosmetologist Maria offers facial treatments, pedicures, brow shaping and lash tinting in Rauma, Finland. Book online 24/7.',
+                keywords: 'cosmetologist in Rauma Finland, beauty salon in Rauma Finland, facial treatment Rauma, pedicure in Rauma, eyebrow shaping Rauma, lash tinting Rauma, beauty care in Finland, appointment booking Rauma'
             },
             uk: {
                 htmlLang: 'uk',
                 ogLocale: 'uk_FI',
                 title: 'Beauty Care Cosmetology | Косметолог у Раумі, Фінляндія',
-                description: 'Beauty Care Cosmetology – сертифікований SKY-косметолог Марія пропонує догляд за обличчям, педикюр та корекцію брів у Раумі. Запис онлайн 24/7.',
-                keywords: 'косметолог Раума, догляд за обличчям Раума, салон краси Фінляндія, SKY-косметолог, педикюр, запис онлайн'
+                description: 'Beauty Care Cosmetology – сертифікований SKY-косметолог Марія пропонує догляд за обличчям, педикюр, корекцію брів і фарбування вій у Раумі, Фінляндія. Запис онлайн 24/7.',
+                keywords: 'косметолог Раума, салон краси Раума, догляд за обличчям Раума, педикюр Раума, корекція брів Раума, фарбування вій Раума, запис онлайн Раума, красота у Фінляндії'
             },
             ru: {
                 htmlLang: 'ru',
                 ogLocale: 'ru_FI',
                 title: 'Beauty Care Cosmetology | Косметолог в Рауме, Финляндия',
-                description: 'Beauty Care Cosmetology – сертифицированный SKY-косметолог Мария предлагает уход за лицом, педикюр и коррекцию бровей в Рауме. Запись онлайн 24/7.',
-                keywords: 'косметолог Раума, уход за лицом Раума, салон красоты Финляндия, SKY-косметолог, педикюр, запись онлайн'
+                description: 'Beauty Care Cosmetology – сертифицированный SKY-косметолог Мария предлагает уход за лицом, педикюр, коррекцию бровей и окрашивание ресниц в Рауме, Финляндия. Запись онлайн 24/7.',
+                keywords: 'косметолог Раума, салон красоты Раума, уход за лицом Раума, педикюр Раума, коррекция бровей Раума, окрашивание ресниц Раума, запись онлайн Раума, красота в Финляндии'
             }
         };
 
@@ -671,6 +704,7 @@
         const translations = {
             fi: {
                 nav_home: "Koti", nav_pricing: "Hinnasto", nav_gallery: "Galleria", nav_book: "Varaa aika",
+                booking_button_label: "Varaa aika",
                 hero_badge: "SKY-Kosmetologi Raumalla",
                 hero_title_1: "Anna ihosi", hero_title_2: "hehkua ja voida hyvin.",
                 hero_subtitle: "Tarjoamme yksilöllisiä ja tuloksellisia kauneudenhoitopalveluja rentouttavassa ympäristössä Rauman sydämessä.",
@@ -708,6 +742,7 @@
             },
             sv: {
                 nav_home: "Hem", nav_pricing: "Priser", nav_gallery: "Galleri", nav_book: "Boka tid",
+                booking_button_label: "Boka tid",
                 hero_badge: "SKY-kosmetolog i Raumo",
                 hero_title_1: "Låt din hud", hero_title_2: "stråla och må bra.",
                 hero_subtitle: "Vi erbjuder personliga och effektiva skönhetsbehandlingar i en avkopplande miljö i hjärtat av Raumo.",
@@ -745,6 +780,7 @@
             },
             en: {
                 nav_home: "Home", nav_pricing: "Pricing", nav_gallery: "Gallery", nav_book: "Book Now",
+                booking_button_label: "Book an appointment",
                 hero_badge: "Certified Cosmetologist in Rauma",
                 hero_title_1: "Let your skin", hero_title_2: "glow and feel great.",
                 hero_subtitle: "We offer personalized and results-oriented beauty treatments in a relaxing environment in the heart of Rauma.",
@@ -774,6 +810,7 @@
             },
             uk: {
                 nav_home: "Головна", nav_pricing: "Прайс", nav_gallery: "Галерея", nav_book: "Записатися",
+                booking_button_label: "Записатися на прийом",
                 hero_badge: "Сертифікований косметолог у Раумі",
                 hero_title_1: "Дозвольте шкірі", hero_title_2: "сяяти та бути здоровою.",
                 hero_subtitle: "Ми пропонуємо індивідуальні та результативні косметичні процедури в розслаблюючій атмосфері в центрі Рауми.",
@@ -803,6 +840,7 @@
             },
             ru: {
                 nav_home: "Главная", nav_pricing: "Прайс", nav_gallery: "Галерея", nav_book: "Записаться",
+                booking_button_label: "Записаться на прием",
                 hero_badge: "Сертифицированный косметолог в Рауме",
                 hero_title_1: "Позвольте коже", hero_title_2: "сиять и быть здоровой.",
                 hero_subtitle: "Мы предлагаем индивидуальные и результативные косметические процедуры в расслабляющей атмосфере в центре Раумы.",
@@ -891,6 +929,28 @@
             }
         });
 
+        function updateBookingButtonLabel() {
+            const selectedLang = translations[currentLang] ? currentLang : 'fi';
+            const label = translations[selectedLang].booking_button_label || translations.fi.booking_button_label;
+            const scheduleUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0JhyRnhd3V-z-O2h67c4O4KQfknGFEWGPHjJmhEbsJDZUZfJtDYZ1BYqJAuy0td0g0rLUFRNhQ?gv=true';
+            const bookingContainer = document.getElementById('google-booking-container');
+            const fallbackLink = document.querySelector('#google-booking-fallback a');
+
+            if (fallbackLink) {
+                fallbackLink.textContent = label;
+            }
+
+            if (bookingContainer && window.calendar && window.calendar.schedulingButton && typeof window.calendar.schedulingButton.load === 'function') {
+                bookingContainer.innerHTML = '';
+                window.calendar.schedulingButton.load({
+                    url: scheduleUrl,
+                    color: '#7A5C3A',
+                    label: label,
+                    target: 'google-booking-container'
+                });
+            }
+        }
+
         window.changeLanguage = function(lang) {
             currentLang = lang;
             const safeLang = seoConfig[lang] ? lang : 'fi';
@@ -907,6 +967,7 @@
                     }
                 }
             });
+            updateBookingButtonLabel();
             toggleLangMenu(false);
             renderDynamicContent(); // Re-render DB content to switch languages
         }
