@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Care Cosmetology | SKY-Kosmetologi Rauma</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Jost', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        skin: {
+                            50: '#fdfbfb',
+                            100: '#f6f1f1',
+                            200: '#eadcdc',
+                            300: '#d7c0c0',
+                            400: '#c09d9d',
+                            500: '#ab7f7f',
+                            600: '#946666',
+                            700: '#7a5454',
+                            800: '#674747',
+                            900: '#563e3e',
+                        },
+                        sage: {
+                            100: '#f0f3f0',
+                            200: '#d9e2d9',
+                            800: '#4a5d4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(253, 251, 251, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="font-body bg-skin-50 text-skin-900 antialiased selection:bg-skin-300 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-heading text-lg md:text-xl tracking-widest uppercase font-medium text-skin-800 flex flex-col sm:flex-row sm:gap-2 leading-none justify-center">
+                        <span>Beauty Care</span> <span class="text-skin-500 font-light">Cosmetology</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#palvelut" class="text-sm font-medium text-skin-700 hover:text-skin-500 transition">Palvelut</a>
+                    <a href="#tietoa" class="text-sm font-medium text-skin-700 hover:text-skin-500 transition">Tietoa meistä</a>
+                    <a href="#yhteystiedot" class="text-sm font-medium text-skin-700 hover:text-skin-500 transition">Yhteystiedot</a>
+                    <a href="#varaa" class="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-skin-600 hover:bg-skin-700 shadow-sm transition-colors duration-300">
+                        Varaa aika
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-skin-700 hover:text-skin-900 focus:outline-none p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-skin-50 border-t border-skin-200 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#palvelut" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md">Palvelut</a>
+                <a href="#tietoa" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md">Tietoa meistä</a>
+                <a href="#yhteystiedot" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md">Yhteystiedot</a>
+                <a href="#varaa" class="block mt-4 px-3 py-3 text-center text-base font-medium rounded-md text-white bg-skin-600 hover:bg-skin-700">
+                    Varaa aika 24/7
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-6 text-center lg:text-left fade-in-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-sage-100 text-sage-800 text-xs font-medium tracking-wide uppercase mb-6">
+                        SKY-Kosmetologi Raumalla
+                    </span>
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl text-skin-900 leading-tight mb-6">
+                        Anna ihosi <br/>
+                        <span class="text-skin-600 italic font-light">hehkua ja voida hyvin.</span>
+                    </h1>
+                    <p class="mt-4 text-lg text-skin-700 font-light mb-8 max-w-xl mx-auto lg:mx-0">
+                        Tarjoamme yksilöllisiä ja tuloksellisia kauneudenhoitopalveluja rentouttavassa ympäristössä. Pysähdy hetkeksi ja anna ammattilaisen huolehtia sinusta.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#varaa" class="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-skin-600 hover:bg-skin-700 shadow-md hover:shadow-lg transition-all duration-300">
+                            Ajanvaraus netissä
+                        </a>
+                        <a href="#palvelut" class="inline-flex justify-center items-center px-8 py-3.5 border border-skin-300 text-base font-medium rounded-full text-skin-800 bg-transparent hover:bg-skin-100 transition-all duration-300">
+                            Tutustu hoitoihin
+                        </a>
+                    </div>
+                    
+                    <!-- Trust badges -->
+                    <div class="mt-10 flex items-center justify-center lg:justify-start gap-6 opacity-80 pt-6 border-t border-skin-200">
+                        <div class="flex items-center gap-2 text-sm text-skin-700 font-medium">
+                            <svg class="w-5 h-5 text-skin-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Yli 10 vuoden kokemus
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-skin-700 font-medium">
+                            <svg class="w-5 h-5 text-skin-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Ilmainen konsultaatio
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="lg:col-span-6 mt-16 lg:mt-0 fade-in-up delay-200">
+                    <div class="relative">
+                        <!-- Decorative element behind image -->
+                        <div class="absolute -top-6 -right-6 w-72 h-72 bg-skin-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+                        <div class="absolute -bottom-6 -left-6 w-72 h-72 bg-sage-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+                        
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/5]">
+                            <!-- Using realistic Unsplash image for aesthetics -->
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=2070" alt="Nainen nauttimassa kasvohoidosta" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Floating badge -->
+                        <div class="absolute -bottom-8 -left-4 sm:bottom-8 sm:-left-12 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                            <div class="w-12 h-12 bg-skin-100 rounded-full flex items-center justify-center text-skin-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-skin-900">4.9/5 Tähteä</p>
+                                <p class="text-xs text-skin-500">Asiakasarvostelut</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="palvelut" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                <h2 class="font-heading text-3xl md:text-4xl text-skin-900 mb-4">Mitä ihosi tarvitsee tänään?</h2>
+                <p class="text-skin-600 font-light text-lg">Laaja valikoima hoitoja päästä varpaisiin. Käytämme vain korkealaatuisia, ammattilaisten suosimia ihonhoitosarjoja.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group bg-skin-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800" alt="Kasvohoidot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-heading font-medium text-white">Kasvohoidot</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-skin-700 text-sm font-light mb-4 line-clamp-3">
+                            Räätälöidyt kasvohoidot juuri sinun ihosi tarpeisiin. Tarjoamme kaikkea puhdistavista perushoidoista edistyneisiin anti-age -hoitoihin ja happokuorintoihin.
+                        </p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-medium text-skin-900">Alk. 75 €</span>
+                            <a href="#varaa" class="text-sm font-medium text-skin-600 hover:text-skin-800 transition-colors inline-flex items-center gap-1">
+                                Lue lisää <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="group bg-skin-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80&w=800" alt="Jalkahoidot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-heading font-medium text-white">Jalkahoidot</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-skin-700 text-sm font-light mb-4 line-clamp-3">
+                            Täydellistä rentoutusta ja huolenpitoa väsyneille jaloille. Klassinen jalkahoito, hemmotteleva spa-jalkahoito tai geelilakkaukset varpaisiin.
+                        </p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-medium text-skin-900">Alk. 65 €</span>
+                            <a href="#varaa" class="text-sm font-medium text-skin-600 hover:text-skin-800 transition-colors inline-flex items-center gap-1">
+                                Lue lisää <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="group bg-skin-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&q=80&w=800" alt="Ripset ja Kulmat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-heading font-medium text-white">Ripset & Kulmat</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-skin-700 text-sm font-light mb-4 line-clamp-3">
+                            Korosta kasvojesi parhaita puolia. Tarjoamme ripsien ja kulmien kestovärjäykset, muotoilut, Lash Lift -kestotaivutukset sekä kulmien laminoinnit.
+                        </p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-medium text-skin-900">Alk. 25 €</span>
+                            <a href="#varaa" class="text-sm font-medium text-skin-600 hover:text-skin-800 transition-colors inline-flex items-center gap-1">
+                                Lue lisää <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center justify-center px-8 py-3 border border-skin-300 text-base font-medium rounded-full text-skin-800 bg-transparent hover:bg-skin-100 transition-all duration-300">
+                    Katso koko hinnasto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tietoa" class="py-20 bg-skin-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                
+                <div class="relative mb-12 lg:mb-0 fade-in-up">
+                    <div class="aspect-[4/5] rounded-t-full rounded-b-2xl overflow-hidden shadow-xl border-8 border-white">
+                        <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=800" alt="Kosmetologi työssään" class="w-full h-full object-cover">
+                    </div>
+                    <!-- decorative badge -->
+                    <div class="absolute top-1/4 -right-6 lg:-right-10 bg-white p-6 rounded-full shadow-lg h-32 w-32 flex flex-col items-center justify-center text-center">
+                        <span class="font-heading text-2xl text-skin-700 block">SKY</span>
+                        <span class="text-[10px] uppercase tracking-wider text-skin-500 font-medium">Kosmetologi</span>
+                    </div>
+                </div>
+
+                <div class="fade-in-up delay-200 text-center lg:text-left">
+                    <h2 class="font-heading text-3xl md:text-4xl text-skin-900 mb-6">Ammattitaitoa ja läsnäoloa.</h2>
+                    <p class="text-skin-700 font-light mb-6 text-lg">
+                        Olen koulutettu SKY-kosmetologi ja tarjoan laadukkaita, tuloksiin tähtääviä hoitoja turvallisesti ja vankalla ammattitaidolla. Uskon, että kauneus ja hyvinvointi kulkevat käsi kädessä.
+                    </p>
+                    <p class="text-skin-700 font-light mb-8 text-lg">
+                        Hoitolassani käytetään vain parhaita, tutkittuja ammattikosmetiikkasarjoja, jotta voimme yhdessä saavuttaa ihosi parhaan mahdollisen kunnon. Jokainen hoito suunnitellaan yksilöllisesti asiakkaan toiveita kuunnellen.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8 text-left inline-block lg:block">
+                        <li class="flex items-center gap-3 text-skin-800">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-skin-200 flex items-center justify-center text-skin-600">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span>Rekisteröity SKY-kosmetologi</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-skin-800">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-skin-200 flex items-center justify-center text-skin-600">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span>Rauhallinen ja yksityinen hoitotila</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-skin-800">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-skin-200 flex items-center justify-center text-skin-600">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span>Korkealaatuiset ja turvalliset tuotteet</span>
+                        </li>
+                    </ul>
+                    
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Signature_of_Anna.svg/512px-Signature_of_Anna.svg.png" alt="Allekirjoitus Maria" class="h-12 mx-auto lg:mx-0 opacity-50 filter grayscale">
+                        <p class="mt-2 font-heading font-medium text-skin-800">Maria, Yrittäjä</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking CTA Banner -->
+    <section id="varaa" class="relative py-24 bg-skin-800 text-white overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="absolute left-0 top-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,100 C30,40 70,60 100,0 L100,100 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+            <h2 class="font-heading text-3xl md:text-5xl font-medium mb-6">Ota omaa aikaa ja varaa hoito.</h2>
+            <p class="text-skin-200 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">
+                Varaa aikasi kätevästi netissä 24/7. Voit valita sinulle sopivimman hoitoajan suoraan sähköisestä kalenteristamme.
+            </p>
+            
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl max-w-lg mx-auto border border-white/20 shadow-2xl">
+                <p class="mb-6 font-medium text-lg">Siirry Timma-ajanvaraukseen</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full py-4 px-6 bg-white text-skin-900 font-semibold rounded-xl hover:bg-skin-50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    Varaa aika heti
+                </a>
+                <p class="mt-4 text-sm text-skin-300 font-light">
+                    Voit myös soittaa varauksen: <a href="tel:+358401234567" class="underline hover:text-white transition">040 123 4567</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info & Footer -->
+    <footer id="yhteystiedot" class="bg-skin-900 text-skin-200 pt-16 pb-8 border-t border-skin-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 border-b border-skin-800/50 pb-12">
+                
+                <!-- Info -->
+                <div>
+                    <h3 class="font-heading text-xl text-white mb-6 uppercase tracking-widest">Beauty Care <span class="font-light text-skin-400 block mt-1">Cosmetology</span></h3>
+                    <p class="font-light text-sm leading-relaxed mb-6">
+                        Beauty Care Cosmetology tarjoaa yksilöllisiä ja hemmottelevia kauneudenhoitopalveluja Rauman sydämessä. Pieni hoitola, jolla on suuri sydän.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-skin-800 flex items-center justify-center hover:bg-skin-700 transition">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-skin-800 flex items-center justify-center hover:bg-skin-700 transition">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact details -->
+                <div>
+                    <h4 class="text-white font-medium text-lg mb-6">Yhteystiedot</h4>
+                    <ul class="space-y-4 font-light text-sm">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-skin-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Kauppakatu 1, Vanha Rauma<br/>26100 Rauma</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-skin-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <a href="tel:+358401234567" class="hover:text-white transition">040 123 4567</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-skin-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <a href="mailto:info@beautycare.fi" class="hover:text-white transition">info@beautycare.fi</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Opening Hours -->
+                <div>
+                    <h4 class="text-white font-medium text-lg mb-6">Aukioloajat</h4>
+                    <ul class="space-y-3 font-light text-sm">
+                        <li class="flex justify-between border-b border-skin-800 pb-2">
+                            <span>Ma - To</span>
+                            <span>10.00 - 18.00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-skin-800 pb-2">
+                            <span>Perjantai</span>
+                            <span>10.00 - 17.00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-skin-800 pb-2">
+                            <span>Lauantai</span>
+                            <span>Sopimuksen mukaan</span>
+                        </li>
+                        <li class="flex justify-between text-skin-500 pt-1">
+                            <span>Sunnuntai</span>
+                            <span>Suljettu</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="text-center text-xs text-skin-500 font-light flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2026 Beauty Care Cosmetology Rauma. Kaikki oikeudet pidätetään.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-skin-300">Tietosuojaseloste</a>
+                    <a href="#" class="hover:text-skin-300">Evästekäytännöt</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconPath = document.getElementById('menu-icon-path');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger
+            } else {
+                iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Close icon
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // Navbar blur and shadow on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-sm');
+                navbar.classList.replace('py-0', 'py-1');
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.classList.replace('py-1', 'py-0');
+            }
+        });
+
+        // Simple Intersection Observer for scroll animations (fade-in-up)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Pause animation initially, then observe
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
