@@ -3,6 +3,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/config.yml",
+      "destination": "/admin/config.yml"
+    },
+    {
       "source": "/",
       "destination": "/index.html"
     }
