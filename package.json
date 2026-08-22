@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npx serve .",
-    "start": "npx serve ."
-  },
-  "devDependencies": {
-    "serve": "^14.2.4"
+    "dev": "npx --yes serve .",
+    "start": "npx --yes serve .",
+    "cms": "npx --yes decap-server"
   }
 }

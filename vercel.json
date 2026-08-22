@@ -2,17 +2,14 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/config.yml", "destination": "/admin/config.yml" },
+    { "source": "/", "destination": "/index.html" }
+  ],
+  "headers": [
     {
-      "source": "/admin",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/config.yml",
-      "destination": "/admin/config.yml"
-    },
-    {
-      "source": "/",
-      "destination": "/index.html"
+      "source": "/admin/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
   ]
 }

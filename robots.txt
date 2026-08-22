@@ -1,17 +1,13 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://beautycare.fi/sitemap.xml
+Sitemap: https://www.estetiikka.com/sitemap.xml
 
-# Important pages
 Allow: /index.html
-Allow: /beauty_care_cosmetology_app.html
 
-# Disable crawling of local/private assets if added later
 Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /.git/
 Disallow: /private/
 
-# Crawl delay (optional)
 Crawl-delay: 10
