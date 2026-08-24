@@ -868,9 +868,11 @@
         }
 
         function locField(item, base) {
-            const lang = translations[currentLang] ? currentLang : 'fi';
-            const suffix = lang.charAt(0).toUpperCase() + lang.slice(1);
-            return item[base + suffix] || item[base + 'Fi'] || item[base] || item[base + 'En'] || '';
+            if (!item) return '';
+            const data = item.attributes || item;
+            const code = (currentLang || 'fi').toLowerCase();
+            const suffix = code.charAt(0).toUpperCase() + code.slice(1);
+            return data[base + suffix] || data[base + 'Fi'] || data[base + 'En'] || data[base] || '';
         }
 
         function mediaSrc(path) {
