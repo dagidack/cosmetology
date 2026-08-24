@@ -1,22 +1,18 @@
 # Beauty Care Cosmetology
 
-Static site for Beauty Care Cosmetology in Rauma, Finland, with **Decap CMS** (Git-based, works on Vercel).
-
-## Project layout
+Static website (Vercel) + **Strapi** CMS (`my-cms/`). Decap CMS has been removed.
 
 ```
 /
-  index.html              Site
-  admin/                  Decap CMS editor  →  /admin
-  content/site.json       CMS content (services + gallery)
-  images/                 Uploaded photos
-  api/auth                GitHub login for the CMS
-  my-cms/                 Optional Strapi app (not deployed to Vercel)
+  index.html          Public site
+  content/site.json   Fallback content if Strapi is offline
+  images/             Local photos
+  my-cms/             Strapi (prices, gallery, photos)
 ```
 
-## Run locally
+The site first tries Strapi at `http://localhost:1337`. If Strapi is not running, it uses `content/site.json`.
 
-Site:
+## Website locally
 
 ```bash
 npm start
@@ -24,48 +20,88 @@ npm start
 
 Open http://localhost:3000
 
-CMS on your machine (optional):
+## Strapi locally
 
-```bash
-npm run cms
-```
+Strapi is a Node server. It **cannot** run on Vercel. Run it on your computer, then later on Railway, Render, Fly.io, a VPS, or [Strapi Cloud](https://cloud.strapi.io).
 
-Then open http://localhost:3000/admin  
-Local editing uses `local_backend: true` in `admin/config.yml`.
+### 1. Node.js
 
-## Deploy to GitHub + Vercel
+Use **Node 20, 22, or 24** (not older). Check with `node -v`.
 
-1. Create a GitHub repo (this project is already set to `dagidack/cosmetology` in `admin/config.yml` — change that if the repo name differs).
-2. Push `main`.
-3. In [Vercel](https://vercel.com), **Import** the GitHub repo.
-4. Root directory: repository root. Framework: Other. No build command.
-5. Add environment variables:
-   - `GITHUB_CLIENT_ID`
-   - `GITHUB_CLIENT_SECRET`
-6. Deploy.
-
-### GitHub OAuth App (required for /admin login)
-
-1. GitHub → Settings → Developer settings → **OAuth Apps** → New.
-Homepage URL: `https://www.estetiikka.com`
-3. Authorization callback URL: `https://www.estetiikka.com/api/auth/callback`
-4. Copy Client ID and Secret into Vercel env vars and redeploy.
-
-After deploy, edit content at `https://www.estetiikka.com/admin`. Saving creates a commit on `main`; Vercel rebuilds the site.
-
-## Strapi (`my-cms`)
-
-Strapi is a Node CMS and **cannot run on Vercel**. It is ignored by Vercel. Use it only on a VPS / Railway / Render / Strapi Cloud if you need it later:
+### 2. Install and create `.env`
 
 ```bash
 cd my-cms
+npm install
+cp .env.example .env
+```
+
+Put real secrets in `.env` (each command prints one value; paste four different values into `APP_KEYS`, comma-separated):
+
+```bash
+openssl rand -base64 32
+```
+
+You need:
+
+- `APP_KEYS` — four values, comma-separated
+- `API_TOKEN_SALT`
+- `ADMIN_JWT_SECRET`
+- `TRANSFER_TOKEN_SALT`
+- `JWT_SECRET`
+- `ENCRYPTION_KEY`
+
+Leave `HOST=0.0.0.0` and `PORT=1337`.
+
+### 3. Start Strapi
+
+```bash
 npm run develop
 ```
 
-Never commit `my-cms/.env`.
+First start can take a few minutes (it builds the admin UI).
 
-## CMS URLs
+Then open:
 
-- Public site: `/`
-- Editor: `/admin`
-- Content file: `/content/site.json`
+- Admin: http://localhost:1337/admin  
+- API: http://localhost:1337/api
+
+Create your admin email and password on the first visit.
+
+### 4. Allow the website to read content
+
+In Strapi admin:
+
+1. **Settings → Users & Permissions → Roles → Public**
+2. Enable **find** and **findOne** for:
+   - Service
+   - Gallery-item
+   - Site-setting
+3. Under **Upload**, enable **find** and **findOne** (so photos can be loaded)
+4. Save
+
+### 5. Add content
+
+- **Service** — price list (category, titles, descriptions, price, photo, “featured” for the home page)
+- **Gallery item** — gallery photos
+- **Site settings** (single type) — hero photo and about photo
+
+Publish each entry. The website only shows **published** items.
+
+### 6. Open the site while Strapi is running
+
+Keep `npm run develop` running in `my-cms`, and `npm start` in the project root. Reload http://localhost:3000 — prices and photos come from Strapi.
+
+To point the live site at a hosted Strapi later, set in `index.html`:
+
+```js
+window.STRAPI_URL = 'https://your-strapi-host';
+```
+
+before the main script, or change the `STRAPI_URL` constant.
+
+## Vercel (website only)
+
+Import the GitHub repo. Root = repository root. No build command. Do **not** deploy `my-cms` to Vercel.
+
+Host Strapi separately, then set `STRAPI_URL` on the website to that Strapi URL. Add your Vercel domain to CORS in `my-cms/config/middlewares.ts` if it is not already `estetiikka.com`.

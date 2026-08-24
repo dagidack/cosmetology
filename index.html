@@ -992,27 +992,73 @@
             });
         }
 
-        async function loadCmsContent() {
-            try {
-                const res = await fetch('/content/site.json', { cache: 'no-store' });
-                if (!res.ok) throw new Error('CMS content missing');
-                const data = await res.json();
-                siteMedia = {
-                    heroImage: data.heroImage || 'images/arrangement.png',
-                    aboutImage: data.aboutImage || 'images/maria-photo.jpg'
-                };
-                proceduresList = (data.services || []).map((s, i) => ({
+        const STRAPI_URL = (window.STRAPI_URL || 'http://localhost:1337').replace(/\/$/, '');
+
+        function strapiMediaUrl(file) {
+            if (!file) return '';
+            const item = Array.isArray(file) ? file[0] : file;
+            const url = item.url || (item.data && item.data.url) || '';
+            if (!url) return '';
+            if (/^https?:\/\//i.test(url)) return url;
+            return STRAPI_URL + url;
+        }
+
+        async function loadFromStrapi() {
+            const [servicesRes, galleryRes, settingsRes] = await Promise.all([
+                fetch(`${STRAPI_URL}/api/services?populate=image&pagination[pageSize]=100&sort=id:asc`),
+                fetch(`${STRAPI_URL}/api/gallery-items?populate=image&pagination[pageSize]=100&sort=id:asc`),
+                fetch(`${STRAPI_URL}/api/site-setting?populate=*`)
+            ]);
+            if (!servicesRes.ok) throw new Error('Strapi services unavailable');
+            const servicesJson = await servicesRes.json();
+            const galleryJson = galleryRes.ok ? await galleryRes.json() : { data: [] };
+            const settingsJson = settingsRes.ok ? await settingsRes.json() : { data: null };
+            const services = servicesJson.data || [];
+            if (!services.length) throw new Error('Strapi has no published services');
+            return {
+                heroImage: strapiMediaUrl(settingsJson.data && settingsJson.data.heroImage) || 'images/arrangement.png',
+                aboutImage: strapiMediaUrl(settingsJson.data && settingsJson.data.aboutImage) || 'images/maria-photo.jpg',
+                services: services.map((s) => ({
                     ...s,
-                    id: String(i + 1),
-                    titleFi: s.titleFi || s.title || '',
-                    descriptionFi: s.descriptionFi || s.description || ''
-                }));
-                galleryItems = data.gallery || [];
-            } catch (e) {
-                console.warn('Using empty CMS fallback', e);
-                proceduresList = [];
-                galleryItems = [];
+                    image: strapiMediaUrl(s.image)
+                })),
+                gallery: (galleryJson.data || []).map((g) => ({
+                    image: strapiMediaUrl(g.image),
+                    altFi: g.altFi,
+                    altSv: g.altSv,
+                    altEn: g.altEn,
+                    altUk: g.altUk,
+                    altRu: g.altRu
+                }))
+            };
+        }
+
+        async function loadCmsContent() {
+            let data = null;
+            try {
+                data = await loadFromStrapi();
+            } catch (strapiError) {
+                console.info('Strapi not available, using local content/site.json', strapiError);
+                try {
+                    const res = await fetch('/content/site.json', { cache: 'no-store' });
+                    if (!res.ok) throw new Error('CMS content missing');
+                    data = await res.json();
+                } catch (e) {
+                    console.warn('Using empty CMS fallback', e);
+                    data = { services: [], gallery: [] };
+                }
             }
+            siteMedia = {
+                heroImage: data.heroImage || 'images/arrangement.png',
+                aboutImage: data.aboutImage || 'images/maria-photo.jpg'
+            };
+            proceduresList = (data.services || []).map((s, i) => ({
+                ...s,
+                id: String(s.id || i + 1),
+                titleFi: s.titleFi || s.title || '',
+                descriptionFi: s.descriptionFi || s.description || ''
+            }));
+            galleryItems = data.gallery || [];
             renderDynamicContent();
         }
 

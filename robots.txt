@@ -5,7 +5,6 @@ Sitemap: https://www.estetiikka.com/sitemap.xml
 
 Allow: /index.html
 
-Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /.git/
 Disallow: /private/

@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "category": {
+      "type": "enumeration",
+      "enum": ["facials", "nails", "brows", "extras"],
+      "required": true,
+      "default": "facials"
+    },
+    "titleFi": { "type": "string", "required": true },
+    "titleSv": { "type": "string" },
+    "titleEn": { "type": "string" },
+    "titleUk": { "type": "string" },
+    "titleRu": { "type": "string" },
+    "descriptionFi": { "type": "text" },
+    "descriptionSv": { "type": "text" },
+    "descriptionEn": { "type": "text" },
+    "descriptionUk": { "type": "text" },
+    "descriptionRu": { "type": "text" },
+    "price": { "type": "integer", "required": true, "min": 0 },
+    "featured": { "type": "boolean", "default": false },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

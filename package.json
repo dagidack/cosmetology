@@ -5,6 +5,6 @@
   "scripts": {
     "dev": "npx --yes serve .",
     "start": "npx --yes serve .",
-    "cms": "npx --yes decap-server"
+    "cms": "npm run develop --prefix my-cms"
   }
 }
