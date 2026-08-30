@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "npx --yes serve .",
-    "start": "npx --yes serve .",
-    "cms": "npm run develop --prefix my-cms"
+    "start": "npx --yes serve ."
   }
 }
