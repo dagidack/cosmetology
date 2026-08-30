@@ -181,9 +181,9 @@
                 </div>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" onclick="navigate('home')" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_home">Koti</a>
-                    <a href="#pricing" onclick="navigate('pricing')" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_pricing">Hinnasto</a>
-                    <a href="#gallery" onclick="navigate('gallery')" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_gallery">Galleria</a>
+                    <a href="home" onclick="navigate('home'); return false;" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_home">Koti</a>
+                    <a href="pricing" onclick="navigate('pricing'); return false;" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_pricing">Hinnasto</a>
+                    <a href="gallery" onclick="navigate('gallery'); return false;" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_gallery">Galleria</a>
 
                     <div class="relative inline-block text-left ml-2" id="lang-dropdown">
                         <button type="button" id="lang-toggle" class="flex items-center text-sm font-medium text-skin-700 hover:text-skin-500 focus:outline-none" aria-haspopup="true" aria-expanded="false" aria-label="Valitse kieli">
@@ -226,10 +226,10 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-skin-50 border-t border-skin-200 shadow-lg absolute w-full z-50">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#home" onclick="navigate('home')" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_home">Koti</a>
-                <a href="#pricing" onclick="navigate('pricing')" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_pricing">Hinnasto</a>
-                <a href="#gallery" onclick="navigate('gallery')" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_gallery">Galleria</a>
-                <a href="#booking" onclick="navigate('booking')" class="block mt-4 px-3 py-3 text-center text-base font-medium rounded-md text-white bg-skin-600 hover:bg-skin-700" data-i18n="nav_book">
+                <a href="home" onclick="navigate('home'); return false;" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_home">Koti</a>
+                <a href="pricing" onclick="navigate('pricing'); return false;" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_pricing">Hinnasto</a>
+                <a href="gallery" onclick="navigate('gallery'); return false;" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_gallery">Galleria</a>
+                <a href="booking" onclick="navigate('booking'); return false;" class="block mt-4 px-3 py-3 text-center text-base font-medium rounded-md text-white bg-skin-600 hover:bg-skin-700" data-i18n="nav_book">
                     Varaa aika 24/7
                 </a>
             </div>
@@ -800,7 +800,7 @@
         }
 
         window.changeLanguage = function(lang) {
-            const safeLang = seoConfig[lang] ? lang : 'ru';
+            const safeLang = seoConfig[lang] ? lang : 'fi';
             currentLang = safeLang;
             document.getElementById('current-lang-display').innerText = safeLang.toUpperCase();
             document.getElementById('mobile-lang-select').value = safeLang;
@@ -820,6 +820,7 @@
             localStorage.setItem('bcc-lang', safeLang);
             const url = new URL(window.location.href);
             url.searchParams.set('lang', safeLang);
+            url.hash = window.location.hash || 'home';
             history.replaceState({}, '', url);
             if (typeof renderDynamicContent === 'function') renderDynamicContent();
         }
@@ -832,9 +833,12 @@
 
         // --- SPA Routing ---
         window.navigate = function(viewId) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', currentLang || 'fi');
+            url.hash = viewId;
+            history.replaceState({}, '', url);
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
             document.getElementById(`view-${viewId}`).classList.add('active');
-            window.location.hash = viewId;
             window.scrollTo(0, 0);
             document.getElementById('mobile-menu').classList.add('hidden');
         }
