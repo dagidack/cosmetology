@@ -251,3 +251,26 @@
     }
   ]
 }
+
+"gallery": [
+    {
+      "image": "/images/st-2.jpg",
+      "altFi": "Rentouttava miljöö",
+      "altSv": "Avslappnande miljö",
+      "altEn": "Relaxing environment",
+      "altUk": "Спокійна атмосфера",
+      "altRu": "Спокойная атмосфера"
+    }
+  ],
+  "diplomas": [
+    {
+      "image": "/images/12232.jpg"
+    },
+    {
+      "image": "/images/12233.jpg"
+    },
+    {
+      "image": "/images/IMG-20250920-WA0025.jpg"
+    }
+  ]
+}
