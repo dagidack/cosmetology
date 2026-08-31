@@ -4,8 +4,11 @@
     <script defer src="https://analytics.pulsegeonews.com/script.js" data-website-id="0e11c3ac-7ee1-47eb-ae39-c72f5d75dd38"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Care Cosmetology | Kauneudenhoitaja Raumalla, Suomi</title>
-    <meta name="description" id="meta-description" content="Beauty Care Cosmetology – kauneudenhoitaja Maria tarjoaa kasvohoitoja, jalkahoitoja, kulmien muotoilua ja ripsien värjäystä Raumalla, Suomessa. Varaa aika netissä 24/7.">
+    <title>Estetiikka</title>
+    <meta name="description" id="meta-description" content="Estetiikka – kauneudenhoitopalveluja Raumalla. Varaa aika netissä 24/7.">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="shortcut icon" href="images/favicon.svg">
+    <link rel="apple-touch-icon" href="images/favicon.svg">
     <meta name="keywords" id="meta-keywords" content="kauneudenhoitaja Rauma, kosmetologi Rauma, kauneushoitola Rauma, kauneushoitola Raumalla, beautician Rauma, kasvohoito Rauma, jalkahoito Rauma, kulmien muotoilu Rauma, ripsien värjäys Rauma, ajanvaraus Raumalla, beauty care Rauma">
     <meta name="author" content="Beauty Care Cosmetology">
     <meta name="robots" content="index, follow">
@@ -95,14 +98,14 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        heading: ['Jost', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
+                        heading: ['LagunaC', 'Georgia', 'serif'],
+                        body: ['Apercu Pro', 'Inter', 'sans-serif'],
                     },
                     colors: {
                         skin: {
-                            50: '#fdfbfb', 100: '#f6f1f1', 200: '#eadcdc', 300: '#d7c0c0', 
-                            400: '#c09d9d', 500: '#ab7f7f', 600: '#946666', 700: '#7a5454', 
-                            800: '#674747', 900: '#563e3e',
+                            50: '#fefaf7', 100: '#f7efe8', 200: '#f1e3d6', 300: '#e8d3bd',
+                            400: '#d9b99d', 500: '#caa789', 600: '#bb957c', 700: '#9b785f',
+                            800: '#785d4f', 900: '#56413a',
                         },
                         sage: {
                             100: '#f0f3f0', 200: '#d9e2d9', 800: '#4a5d4a',
@@ -117,12 +120,12 @@
         .fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .brand-logo {
-            font-family: "MADE Mirage", "Georgia", serif;
+            font-family: "LagunaC", "Georgia", serif;
             letter-spacing: 0.02em;
             font-weight: 500;
         }
         .title-font {
-            font-family: "Changa", "Jost", sans-serif;
+            font-family: "LagunaC", "Georgia", serif;
             font-weight: 600;
             letter-spacing: -0.04em;
         }
@@ -136,6 +139,10 @@
             letter-spacing: 0.18em;
             text-transform: uppercase;
             font-weight: 600;
+            font-family: "Apercu Pro", "Inter", sans-serif;
+        }
+        body {
+            font-family: "Apercu Pro", "Inter", sans-serif;
         }
         .view-section { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
         .view-section.active { display: block; opacity: 1; }
@@ -174,9 +181,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
-                    <div class="brand-logo text-lg md:text-xl uppercase text-skin-800 flex flex-col leading-tight justify-center">
+                    <div class="brand-logo text-lg md:text-xl uppercase text-black flex flex-col leading-tight justify-center">
                         <span>Estetiikka</span>
-                        <span class="text-skin-500 font-light text-[10px] sm:text-xs tracking-wider normal-case md:uppercase">Beauty Care &amp; Cosmetology</span>
+                        <span class="text-black font-light text-[10px] sm:text-xs tracking-wider normal-case md:uppercase">Beauty Care &amp; Cosmetology</span>
                     </div>
                 </div>
 
@@ -184,6 +191,7 @@
                     <a href="home" onclick="navigate('home'); return false;" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_home">Koti</a>
                     <a href="pricing" onclick="navigate('pricing'); return false;" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_pricing">Hinnasto</a>
                     <a href="gallery" onclick="navigate('gallery'); return false;" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_gallery">Galleria</a>
+                    <a href="diplomas" onclick="navigate('diplomas'); return false;" class="nav-link text-sm font-medium text-skin-700 hover:text-skin-500 transition" data-i18n="nav_diplomas">Diplomas</a>
 
                     <div class="relative inline-block text-left ml-2" id="lang-dropdown">
                         <button type="button" id="lang-toggle" class="flex items-center text-sm font-medium text-skin-700 hover:text-skin-500 focus:outline-none" aria-haspopup="true" aria-expanded="false" aria-label="Valitse kieli">
@@ -229,6 +237,7 @@
                 <a href="home" onclick="navigate('home'); return false;" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_home">Koti</a>
                 <a href="pricing" onclick="navigate('pricing'); return false;" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_pricing">Hinnasto</a>
                 <a href="gallery" onclick="navigate('gallery'); return false;" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_gallery">Galleria</a>
+                <a href="diplomas" onclick="navigate('diplomas'); return false;" class="block px-3 py-3 text-base font-medium text-skin-700 hover:bg-skin-100 rounded-md" data-i18n="nav_diplomas">Diplomas</a>
                 <a href="booking" onclick="navigate('booking'); return false;" class="block mt-4 px-3 py-3 text-center text-base font-medium rounded-md text-white bg-skin-600 hover:bg-skin-700" data-i18n="nav_book">
                     Varaa aika 24/7
                 </a>
@@ -247,11 +256,11 @@
                         <div class="lg:col-span-6 text-center lg:text-left fade-in-up">
                             <span class="eyebrow-text mb-6" data-i18n="hero_badge">Kauneudenhoitaja Raumalla</span>
                             <h1 class="title-font text-4xl sm:text-5xl lg:text-[4.2rem] leading-[0.9] text-skin-900 mb-6">
-                                <span data-i18n="hero_title_1">Anna ihosi</span><br>
-                                <span class="text-skin-600 italic font-light" data-i18n="hero_title_2">hehkua ja voida hyvin.</span>
+                                <span data-i18n="hero_title_1">Let your skin</span><br>
+                                <span class="text-skin-600 italic font-light" data-i18n="hero_title_2">glow and feel well.</span>
                             </h1>
                             <p class="mt-4 text-lg text-skin-700 font-light mb-8 max-w-xl mx-auto lg:mx-0" data-i18n="hero_subtitle">
-                                Tarjoamme yksilöllisiä ja tuloksellisia kauneudenhoitopalveluja rentouttavassa ympäristössä Rauman sydämessä.
+                                Совершенство в деталях, эстетика в отражении
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <button onclick="navigate('booking')" class="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-skin-600 hover:bg-skin-700 shadow-md transition-all" data-i18n="hero_btn_book">
@@ -290,23 +299,66 @@
             <!-- Dynamic Services Preview (Loaded from DB) -->
             <div class="bg-white py-20">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-12">
-                        <h2 class="font-heading text-3xl md:text-4xl text-skin-900 mb-4" data-i18n="services_title">Suosituimmat hoidot</h2>
-                    </div>
-                    <!-- Services Grid Container -->
-                    <div id="home-services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Content injected via JS -->
-                        <div class="col-span-full text-center text-skin-500 py-10" id="home-services-loading" data-i18n="loading_services">
-                            Ladataan hoitoja...
+                    <div class="max-w-5xl mx-auto">
+                        <div class="rounded-[32px] border border-skin-200 bg-gradient-to-br from-skin-50 via-white to-[#f8f4f1] shadow-sm overflow-hidden">
+                            <div class="px-6 py-10 sm:px-10 lg:px-14 lg:py-14 text-center">
+                                <span class="inline-flex items-center justify-center rounded-full border border-skin-300 bg-white px-4 py-1.5 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-skin-700" data-i18n="new_client_offer_badge">
+                                    New client offer
+                                </span>
+                                <h2 class="mt-6 font-heading text-3xl md:text-5xl text-skin-900 leading-tight" data-i18n="new_client_offer_title">
+                                    -15% discount for all new clients at the first visit
+                                </h2>
+                                <p class="mt-5 max-w-2xl mx-auto text-base md:text-lg text-skin-700 font-light" data-i18n="new_client_offer_text">
+                                    Take the first step towards healthier and more radiant skin — new clients receive a 15% discount on their first visit.
+                                </p>
+                                <div class="mt-8 flex justify-center">
+                                    <button onclick="navigate('pricing')" class="inline-flex items-center justify-center px-8 py-3.5 border border-skin-300 text-base font-medium rounded-full text-skin-800 hover:bg-skin-100 transition-all" data-i18n="btn_all_prices">
+                                        View the full price list
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mt-12 text-center">
-                        <button onclick="navigate('pricing')" class="inline-flex items-center justify-center px-8 py-3 border border-skin-300 text-base font-medium rounded-full text-skin-800 hover:bg-skin-100 transition-all" data-i18n="btn_all_prices">
-                            Katso koko hinnasto
-                        </button>
                     </div>
                 </div>
             </div>
+
+            <section class="bg-white py-20 lg:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                        <div class="order-2 lg:order-1">
+                            <span class="eyebrow-text mb-5" data-i18n="gift_badge">Gift card</span>
+                            <h2 class="font-heading text-3xl md:text-4xl text-skin-900 mb-5" data-i18n="gift_title">A gift card for someone you love</h2>
+                            <p class="text-skin-700 font-light leading-relaxed mb-8" data-i18n="gift_text">
+                                Give the gift of care, glow and time to relax. A gift card can be issued for any amount or for a specific treatment.
+                            </p>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="rounded-2xl border border-skin-200 bg-skin-50 p-5">
+                                    <div class="text-xs uppercase tracking-[0.2em] text-skin-500 mb-2" data-i18n="gift_option_any">Any amount</div>
+                                    <p class="text-skin-700 font-light text-sm" data-i18n="gift_option_any_desc">Choose the amount you want to give.</p>
+                                </div>
+                                <div class="rounded-2xl border border-skin-200 bg-skin-50 p-5">
+                                    <div class="text-xs uppercase tracking-[0.2em] text-skin-500 mb-2" data-i18n="gift_option_service">Specific treatment</div>
+                                    <p class="text-skin-700 font-light text-sm" data-i18n="gift_option_service_desc">Choose a treatment or a desired service.</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <button onclick="navigate('booking')" class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-skin-600 hover:bg-skin-700 shadow-md transition-all" data-i18n="gift_button">
+                                    Ask about a gift card
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="order-1 lg:order-2">
+                            <div class="grid grid-cols-2 gap-4 sm:gap-6">
+                                <img src="/images/gift/Business_Card_Mockup_5.jpg" alt="Gift card mockup" class="rounded-[28px] shadow-xl w-full h-full object-cover aspect-[3/4]">
+                                <img src="/images/gift/3.5x2in_Business_Card_Mockup.jpg" alt="Gift card close-up" class="rounded-[28px] shadow-xl w-full h-full object-cover aspect-[3/4] mt-8 sm:mt-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- About Maria Section -->
             <div class="bg-skin-50 py-20 lg:py-28">
@@ -346,7 +398,7 @@
                             </ul>
                             <div class="border-t border-skin-200 pt-6">
                                 <p class="font-heading text-2xl text-skin-600 italic mb-1" data-i18n="about_signature">Maria</p>
-                                <p class="text-skin-800 font-medium" data-i18n="about_role">Maria kasvohoito</p>
+                                <p class="text-skin-800 font-medium" data-i18n="about_role">Kosmetolog estetiikka</p>
                             </div>
                         </div>
                     </div>
@@ -409,6 +461,20 @@
                         Varaa aika
                     </button>
                 </div>
+            </div>
+        </section>
+
+        <!-- ================= DIPLOMAS VIEW ================= -->
+        <section id="view-diplomas" class="view-section bg-skin-50 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in-up">
+                    <h1 class="font-heading text-4xl text-skin-900 mb-4" data-i18n="page_diplomas_title">Diplomas</h1>
+                    <p class="text-skin-600 font-light max-w-2xl mx-auto" data-i18n="page_diplomas_subtitle">
+                        Professional education and certifications of Beauty Care Cosmetology.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" id="diploma-grid"></div>
             </div>
         </section>
 
@@ -565,7 +631,7 @@
 
         const translations = {
             fi: {
-                nav_home: "Koti", nav_pricing: "Hinnasto", nav_gallery: "Galleria", nav_book: "Varaa aika",
+                nav_home: "Koti", nav_pricing: "Hinnasto", nav_gallery: "Galleria", nav_diplomas: "Diplomit", nav_book: "Varaa aika",
                 booking_button_label: "Varaa aika",
                 hero_badge: "Kauneudenhoitaja Raumalla",
                 hero_title_1: "Anna ihosi", hero_title_2: "hehkua ja voida hyvin.",
@@ -573,14 +639,26 @@
                 hero_btn_book: "Ajanvaraus netissä", hero_btn_services: "Tutustu hoitoihin",
                 hero_stat_experience: "Yli 4 vuoden kokemus", hero_stat_consult: "Ilmainen konsultaatio",
                 services_title: "Suosituimmat hoidot", btn_all_prices: "Katso koko hinnasto",
+                new_client_offer_badge: "Uusi asiakas - tarjous",
+                new_client_offer_title: "-15 % alennus kaikille uusille asiakkaille ensimmäisestä käynnistä",
+                new_client_offer_text: "Aloita terveemmän ja hehkuvamman ihon matkalle — uusille asiakkaille on ensimmäisestä käynnistä -15 % alennus.",
+                new_client_offer_button: "Varaa aika",
+                gift_badge: "Lahjakortti",
+                gift_title: "Lahjakortti läheiselle",
+                gift_text: "Anna lahjaksi huolenpitoa, hyvää oloa ja kauneutta. Lahjakortin voi tehdä mihin tahansa summaan tai tietylle palvelulle.",
+                gift_option_any: "Mikä tahansa summa",
+                gift_option_any_desc: "Valitse itse lahjan määrä.",
+                gift_option_service: "Tietyt palvelut",
+                gift_option_service_desc: "Valitse haluamasi hoito tai palvelu.",
+                gift_button: "Pyydä lahjakortti",
                 loading_services: "Ladataan hoitoja...", empty_services: "Ei hoitoja saatavilla tällä hetkellä.",
-                empty_gallery: "Galleria täydentyy pian.",
+                empty_gallery: "Galleria täydentyy pian.", empty_diplomas: "Diplomien galleria täydennetään pian.",
                 about_badge: "Kauneuden-<br>hoitaja",
                 about_title: "Ammattitaitoa ja läsnäoloa.",
                 about_p1: "Olen koulutettu kauneudenhoitaja ja tarjoan laadukkaita, tuloksiin tähtääviä hoitoja turvallisesti ja vankalla ammattitaidolla. Uskon, että kauneus ja hyvinvointi kulkevat käsi kädessä.",
                 about_p2: "Hoitolassani käytetään vain parhaita, tutkittuja ammattikosmetiikkasarjoja, jotta voimme yhdessä saavuttaa ihosi parhaan mahdollisen kunnon. Jokainen hoito suunnitellaan yksilöllisesti asiakkaan toiveita kuunnellen.",
                 about_li1: "Koulutettu kauneudenhoitaja", about_li2: "Rauhallinen ja yksityinen hoitotila", about_li3: "Korkealaatuiset ja turvalliset tuotteet",
-                about_signature: "Maria", about_role: "Maria kasvohoito",
+                about_signature: "Maria", about_role: "Kosmetolog estetiikka",
                 cta_title: "Ota omaa aikaa ja varaa hoito.",
                 cta_subtitle: "Varaa aikasi kätevästi netissä 24/7. Voit valita sinulle sopivimman hoitoajan suoraan sähköisestä kalenteristamme.",
                 cta_card_label: "Siirry ajanvaraukseen", cta_btn: "Varaa aika heti", cta_phone_label: "Voit myös soittaa varauksen:",
@@ -589,13 +667,14 @@
                 pricing_book_cta: "Varaa aika hoitoon",
                 page_gallery_title: "Galleria", page_gallery_subtitle: "Tutustu hoitotilaan ja rentouttavaan tunnelmaan Beauty Care Cosmetology -salongissa Raumalla.",
                 gallery_cta_text: "Haluatko kokea saman rentouttavan tunnelman itse?",
+                page_diplomas_title: "Diplomit", page_diplomas_subtitle: "Ammattitaitoa, koulutusta ja sertifikaatteja Beauty Care Cosmetology -salongista.",
                 page_book_title: "Varaa aika", page_book_subtitle: "Valitse sinulle sopivin aika kalenterista. Käytämme turvallista ajanvarausjärjestelmää.",
                 footer_desc: "Yksilöllisiä kauneudenhoitopalveluja Rauman sydämessä.",
                 footer_contact: "Yhteystiedot", footer_hours: "Aukioloajat", footer_weekdays: "Avoinna aina", footer_weekend: "Avoinna aina", footer_open_note: "Aika sovitaan",
                 read_more: "Lue lisää"
             },
             sv: {
-                nav_home: "Hem", nav_pricing: "Priser", nav_gallery: "Galleri", nav_book: "Boka tid",
+                nav_home: "Hem", nav_pricing: "Priser", nav_gallery: "Galleri", nav_diplomas: "Diplom", nav_book: "Boka tid",
                 booking_button_label: "Boka tid",
                 hero_badge: "Beautician i Raumo",
                 hero_title_1: "Låt din hud", hero_title_2: "stråla och må bra.",
@@ -603,14 +682,26 @@
                 hero_btn_book: "Boka online", hero_btn_services: "Utforska behandlingar",
                 hero_stat_experience: "Över 4 års erfarenhet", hero_stat_consult: "Gratis konsultation",
                 services_title: "Populära behandlingar", btn_all_prices: "Se hela prislistan",
+                new_client_offer_badge: "Erbjudande för nya kunder",
+                new_client_offer_title: "-15 % rabatt för alla nya kunder vid första besöket",
+                new_client_offer_text: "Ta första steget mot friskare och mer strålande hud — nya kunder får 15 % rabatt på sin första behandling.",
+                new_client_offer_button: "Boka tid",
+                gift_badge: "Presentkort",
+                gift_title: "Presentkort till nära och kära",
+                gift_text: "Ge en stund av omsorg, skönhet och välbefinnande. Presentkort kan väljas för valfri summa eller för en specifik behandling.",
+                gift_option_any: "Valfri summa",
+                gift_option_any_desc: "Välj den summa du vill ge.",
+                gift_option_service: "Specifik behandling",
+                gift_option_service_desc: "Välj den behandling du vill ge.",
+                gift_button: "Fråga om presentkort",
                 loading_services: "Laddar behandlingar...", empty_services: "Inga behandlingar tillgängliga just nu.",
-                empty_gallery: "Galleriet fylls på inom kort.",
+                empty_gallery: "Galleriet fylls på inom kort.", empty_diplomas: "Diplomgalleriet fylls på snart.",
                 about_badge: "Beautician",
                 about_title: "Yrkeskunskap och närvaro.",
                 about_p1: "Jag är utbildad beautician och erbjuder högkvalitativa, resultatinriktade behandlingar tryggt och med gedigen yrkeskunskap. Jag tror att skönhet och välbefinnande går hand i hand.",
                 about_p2: "På min klinik används bara de bästa, undersökta professionella kosmetikaserierna så att vi tillsammans kan nå din huds bästa möjliga skick. Varje behandling planeras individuellt utifrån kundens önskemål.",
                 about_li1: "Utbildad beautician", about_li2: "Lugnt och privat behandlingsrum", about_li3: "Högkvalitativa och säkra produkter",
-                about_signature: "Maria", about_role: "Maria ansiktsbehandling",
+                about_signature: "Maria", about_role: "Kosmetolog estetiikka",
                 cta_title: "Ta tid för dig själv och boka en behandling.",
                 cta_subtitle: "Boka din tid enkelt på nätet dygnet runt. Du kan välja den behandlingstid som passar dig bäst direkt i vår digitala kalender.",
                 cta_card_label: "Gå till tidsbokningen", cta_btn: "Boka tid nu", cta_phone_label: "Du kan också ringa för att boka:",
@@ -619,13 +710,14 @@
                 pricing_book_cta: "Boka en behandling",
                 page_gallery_title: "Galleri", page_gallery_subtitle: "Upptäck behandlingsrummet och den avkopplande stämningen hos Beauty Care Cosmetology i Raumo.",
                 gallery_cta_text: "Vill du uppleva samma avkopplande stämning själv?",
+                page_diplomas_title: "Diplom", page_diplomas_subtitle: "Professionell utbildning och certifieringar från Beauty Care Cosmetology.",
                 page_book_title: "Boka tid", page_book_subtitle: "Välj den tid som passar dig i kalendern. Vi använder ett säkert bokningssystem.",
                 footer_desc: "Personliga skönhetsbehandlingar i hjärtat av Raumo.",
                 footer_contact: "Kontakt", footer_hours: "Öppettider", footer_weekdays: "Öppet alltid", footer_weekend: "Öppet alltid", footer_open_note: "Tid bokas",
                 read_more: "Läs mer"
             },
             en: {
-                nav_home: "Home", nav_pricing: "Price list", nav_gallery: "Gallery", nav_book: "Book now",
+                nav_home: "Home", nav_pricing: "Price list", nav_gallery: "Gallery", nav_diplomas: "Diplomas", nav_book: "Book now",
                 booking_button_label: "Book an appointment",
                 hero_badge: "Beautician in Rauma, Finland",
                 hero_title_1: "Let your skin", hero_title_2: "glow and feel well.",
@@ -633,14 +725,26 @@
                 hero_btn_book: "Book online", hero_btn_services: "Explore treatments",
                 hero_stat_experience: "Over 4 years of experience", hero_stat_consult: "Free consultation",
                 services_title: "Popular treatments", btn_all_prices: "View the full price list",
+                new_client_offer_badge: "New client offer",
+                new_client_offer_title: "-15% discount for all new clients on the first visit",
+                new_client_offer_text: "Take the first step towards healthier, more radiant skin — all new clients receive a 15% discount on their first visit.",
+                new_client_offer_button: "Book now",
+                gift_badge: "Gift card",
+                gift_title: "A gift card for someone you love",
+                gift_text: "Give the gift of care, glow and time to relax. A gift card can be issued for any amount or for a specific treatment.",
+                gift_option_any: "Any amount",
+                gift_option_any_desc: "Choose the amount you want to give.",
+                gift_option_service: "Specific treatment",
+                gift_option_service_desc: "Choose the treatment or service you want to give.",
+                gift_button: "Ask about a gift card",
                 loading_services: "Loading treatments...", empty_services: "No treatments available at the moment.",
-                empty_gallery: "The gallery will be updated soon.",
+                empty_gallery: "The gallery will be updated soon.", empty_diplomas: "The diploma gallery will be updated soon.",
                 about_badge: "Beautician",
                 about_title: "Professional skill and presence.",
                 about_p1: "I am a trained beautician and offer high-quality, results-oriented treatments safely and with solid professional skill. I believe beauty and wellbeing go hand in hand.",
                 about_p2: "In my studio we use only the best, researched professional skincare lines so we can achieve your skin’s best possible condition together. Every treatment is planned individually, listening to the client’s wishes.",
                 about_li1: "Trained beautician", about_li2: "Calm and private treatment room", about_li3: "High-quality and safe products",
-                about_signature: "Maria", about_role: "Maria facial treatments",
+                about_signature: "Maria", about_role: "Cosmetic esthetician",
                 cta_title: "Take time for yourself and book a treatment.",
                 cta_subtitle: "Book your appointment conveniently online 24/7. You can choose the treatment time that suits you directly from our online calendar.",
                 cta_card_label: "Go to booking", cta_btn: "Book now", cta_phone_label: "You can also call to book:",
@@ -649,13 +753,14 @@
                 pricing_book_cta: "Book a treatment",
                 page_gallery_title: "Gallery", page_gallery_subtitle: "See the treatment space and the relaxing atmosphere at Beauty Care Cosmetology in Rauma.",
                 gallery_cta_text: "Would you like to experience the same calm atmosphere yourself?",
+                page_diplomas_title: "Diplomas", page_diplomas_subtitle: "Professional education and certifications of Beauty Care Cosmetology.",
                 page_book_title: "Book an appointment", page_book_subtitle: "Choose a time from the calendar. We use a secure booking system.",
                 footer_desc: "Personal beauty treatments in the heart of Rauma, Finland.",
                 footer_contact: "Contact", footer_hours: "Opening hours", footer_weekdays: "Open always", footer_weekend: "Open always", footer_open_note: "Time by appointment",
                 read_more: "Read more"
             },
             uk: {
-                nav_home: "Головна", nav_pricing: "Прайс", nav_gallery: "Галерея", nav_book: "Записатися",
+                nav_home: "Головна", nav_pricing: "Прайс", nav_gallery: "Галерея", nav_diplomas: "Дипломи", nav_book: "Записатися",
                 booking_button_label: "Записатися на прийом",
                 hero_badge: "Майстер краси в Раумі, Фінляндія",
                 hero_title_1: "Дозвольте шкірі", hero_title_2: "сяяти і почуватися добре.",
@@ -663,14 +768,26 @@
                 hero_btn_book: "Запис онлайн", hero_btn_services: "Наші процедури",
                 hero_stat_experience: "Понад 4 роки досвіду", hero_stat_consult: "Безкоштовна консультація",
                 services_title: "Популярні процедури", btn_all_prices: "Дивитися весь прайс",
+                new_client_offer_badge: "Пропозиція для нових клієнтів",
+                new_client_offer_title: "-15% знижка для всіх нових клієнтів при першому візиті",
+                new_client_offer_text: "Зробіть перший крок до здоровішої та сяючої шкіри — нові клієнти отримують знижку 15% на перший візит.",
+                new_client_offer_button: "Записатися",
+                gift_badge: "Подарункова карта",
+                gift_title: "Подарункова карта для близьких",
+                gift_text: "Подаруйте час для турботи, краси та релаксу. Подарункову карту можна оформити на будь-яку суму або на конкретну послугу.",
+                gift_option_any: "На будь-яку суму",
+                gift_option_any_desc: "Виберіть суму, яку хочете подарувати.",
+                gift_option_service: "На конкретну послугу",
+                gift_option_service_desc: "Виберіть бажану процедуру або послугу.",
+                gift_button: "Запитати про подарункову карту",
                 loading_services: "Завантаження процедур...", empty_services: "Наразі немає доступних процедур.",
-                empty_gallery: "Галерея незабаром поповниться.",
+                empty_gallery: "Галерея незабаром поповниться.", empty_diplomas: "Галерея дипломів скоро поповниться.",
                 about_badge: "Beautician",
                 about_title: "Професіоналізм і присутність.",
                 about_p1: "Я дипломований майстер краси і пропоную якісні, орієнтовані на результат процедури безпечно та з твердим професіоналізмом. Вірю, що краса і самопочуття йдуть разом.",
                 about_p2: "У моєму кабінеті використовуються лише найкращі, досліджені професійні косметичні лінії, щоб разом досягти найкращого можливого стану вашої шкіри. Кожна процедура планується індивідуально, з урахуванням побажань клієнта.",
                 about_li1: "Дипломований майстер краси", about_li2: "Спокійний і приватний кабінет", about_li3: "Якісні та безпечні засоби",
-                about_signature: "Марія", about_role: "Марія, догляд за обличчям",
+                about_signature: "Марія", about_role: "Косметолог-естетист",
                 cta_title: "Виділіть час для себе і запишіться на процедуру.",
                 cta_subtitle: "Записуйтесь зручно онлайн 24/7. Ви можете обрати найзручніший час процедури прямо в електронному календарі.",
                 cta_card_label: "Перейти до запису", cta_btn: "Записатися зараз", cta_phone_label: "Можна також зателефонувати для запису:",
@@ -679,13 +796,14 @@
                 pricing_book_cta: "Записатися на процедуру",
                 page_gallery_title: "Галерея", page_gallery_subtitle: "Познайомтеся з кабінетом і спокійною атмосферою Beauty Care Cosmetology у Раумі.",
                 gallery_cta_text: "Хочете відчути таку саму спокійну атмосферу?",
+                page_diplomas_title: "Дипломи", page_diplomas_subtitle: "Професійна освіта та сертифікати Beauty Care Cosmetology.",
                 page_book_title: "Запис на прийом", page_book_subtitle: "Оберіть зручний час у календарі. Ми використовуємо безпечну систему бронювання.",
                 footer_desc: "Індивідуальні косметичні процедури в серці Рауми.",
                 footer_contact: "Контакти", footer_hours: "Години роботи", footer_weekdays: "Відкрито завжди", footer_weekend: "Відкрито завжди", footer_open_note: "Час узгоджується",
                 read_more: "Детальніше"
             },
             ru: {
-                nav_home: "Главная", nav_pricing: "Прайс", nav_gallery: "Галерея", nav_book: "Записаться",
+                nav_home: "Главная", nav_pricing: "Прайс", nav_gallery: "Галерея", nav_diplomas: "Дипломы", nav_book: "Записаться",
                 booking_button_label: "Записаться на приём",
                 hero_badge: "Мастер красоты в Рауме, Финляндия",
                 hero_title_1: "Позвольте коже", hero_title_2: "сиять и чувствовать себя хорошо.",
@@ -693,14 +811,26 @@
                 hero_btn_book: "Запись онлайн", hero_btn_services: "Наши процедуры",
                 hero_stat_experience: "Более 4 лет опыта", hero_stat_consult: "Бесплатная консультация",
                 services_title: "Популярные процедуры", btn_all_prices: "Смотреть весь прайс",
+                new_client_offer_badge: "Акция для новых клиентов",
+                new_client_offer_title: "-15% скидка всем новым клиентам при первом посещении",
+                new_client_offer_text: "Сделайте первый шаг к более здоровой и сияющей коже — всем новым клиентам предоставляется скидка 15% при первом посещении.",
+                new_client_offer_button: "Записаться",
+                gift_badge: "Подарочная карта",
+                gift_title: "Подарочная карта для близких",
+                gift_text: "Подарите заботу, красоту и время для отдыха. Подарочную карту можно оформить на любую сумму или на конкретную услугу.",
+                gift_option_any: "На любую сумму",
+                gift_option_any_desc: "Выберите сумму подарка.",
+                gift_option_service: "На конкретную услугу",
+                gift_option_service_desc: "Выберите желаемую процедуру или услугу.",
+                gift_button: "Узнать о подарочной карте",
                 loading_services: "Загрузка процедур...", empty_services: "Сейчас нет доступных процедур.",
-                empty_gallery: "Галерея скоро пополнится.",
+                empty_gallery: "Галерея скоро пополнится.", empty_diplomas: "Галерея дипломов скоро пополнится.",
                 about_badge: "Beautician",
                 about_title: "Профессионализм и присутствие.",
                 about_p1: "Я дипломированный мастер красоты и предлагаю качественные, ориентированные на результат процедуры безопасно и с уверенным профессионализмом. Верю, что красота и самочувствие идут вместе.",
                 about_p2: "В моём кабинете используются только лучшие, исследованные профессиональные косметические линейки, чтобы вместе достичь наилучшего возможного состояния вашей кожи. Каждая процедура планируется индивидуально, с учётом пожеланий клиента.",
                 about_li1: "Дипломированный мастер красоты", about_li2: "Спокойный и приватный кабинет", about_li3: "Качественные и безопасные средства",
-                about_signature: "Мария", about_role: "Мария, уход за лицом",
+                about_signature: "Мария", about_role: "Косметолог-эстетист",
                 cta_title: "Выделите время для себя и запишитесь на процедуру.",
                 cta_subtitle: "Записывайтесь удобно онлайн 24/7. Вы можете выбрать наиболее подходящее время процедуры прямо в электронном календаре.",
                 cta_card_label: "Перейти к записи", cta_btn: "Записаться сейчас", cta_phone_label: "Можно также позвонить, чтобы записаться:",
@@ -851,6 +981,27 @@
             }
         });
 
+        const fullscreenModal = `
+            <div id="fullscreen-gallery-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm">
+                <div class="relative flex min-h-screen items-center justify-center p-3 sm:p-6">
+                    <button type="button" aria-label="Close gallery image" class="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 text-white text-3xl sm:text-4xl leading-none hover:text-skin-200 transition-colors bg-black/20 rounded-full w-10 h-10 flex items-center justify-center" onclick="closeFullscreenImage()">&times;</button>
+                    <img src="" alt="" class="max-h-[92vh] max-w-[92vw] object-contain rounded-xl shadow-2xl bg-white/5">
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', fullscreenModal);
+
+        const fullscreenModalEl = document.getElementById('fullscreen-gallery-modal');
+        if (fullscreenModalEl) {
+            fullscreenModalEl.addEventListener('click', (event) => {
+                if (event.target === fullscreenModalEl) closeFullscreenImage();
+            });
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeFullscreenImage();
+        });
+
         // Open view from URL hash on load
         (function initRoute() {
             const viewId = window.location.hash.replace('#', '') || 'home';
@@ -864,7 +1015,35 @@
 
         let proceduresList = [];
         let galleryItems = [];
+        let diplomaItems = [];
         let siteMedia = { heroImage: 'images/arrangement.png', aboutImage: 'images/maria-photo.jpg' };
+
+        async function listDirectoryImages(dirPath) {
+            try {
+                const url = dirPath.startsWith('/') ? dirPath : `/${dirPath}`;
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) return [];
+
+                const html = await res.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const hrefs = [...doc.querySelectorAll('a')]
+                    .map((link) => link.getAttribute('href'))
+                    .filter(Boolean)
+                    .filter((href) => !href.startsWith('?') && !href.startsWith('../'))
+                    .filter((href) => !href.endsWith('/'));
+
+                const files = hrefs
+                    .map((href) => href.split('/').pop())
+                    .filter((name) => /\.(jpe?g|png|webp|gif|avif|svg)$/i.test(name))
+                    .filter((name) => !/^\.?DS_Store$/i.test(name) && !/^favicon\.svg$/i.test(name))
+                    .map((name) => `${dirPath.replace(/\/$/, '')}/${name}`.replace(/\/\/+/, '/'));
+
+                return [...new Set(files)];
+            } catch (error) {
+                console.warn(`Failed to list images in ${dirPath}`, error);
+                return [];
+            }
+        }
 
         function t(key) {
             const lang = translations[currentLang] ? currentLang : 'ru';
@@ -885,6 +1064,32 @@
             return path.startsWith('/') ? path : `/${path}`;
         }
 
+        function openFullscreenImage(src, alt = '') {
+            const modal = document.getElementById('fullscreen-gallery-modal');
+            const img = modal?.querySelector('img');
+            if (!modal || !img) return;
+
+            img.src = src;
+            img.alt = alt;
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeFullscreenImage() {
+            const modal = document.getElementById('fullscreen-gallery-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function bindFullscreenImages() {
+            document.querySelectorAll('[data-fullscreen-src]').forEach((button) => {
+                button.onclick = () => {
+                    openFullscreenImage(button.dataset.fullscreenSrc, button.dataset.fullscreenAlt || '');
+                };
+            });
+        }
+
         function renderGallery() {
             const galleryGrid = document.getElementById('gallery-grid');
             if (!galleryGrid) return;
@@ -897,11 +1102,32 @@
                 const alt = locField(item, 'alt') || 'Beauty Care Cosmetology';
                 const ratio = index % 2 === 0 ? 'aspect-[4/5]' : 'aspect-square';
                 return `
-                    <div class="gallery-item rounded-2xl overflow-hidden shadow-sm ${ratio}">
+                    <button type="button" class="gallery-item block rounded-2xl overflow-hidden shadow-sm ${ratio} cursor-pointer hover:opacity-95 transition-opacity" data-fullscreen-src="${src}" data-fullscreen-alt="${alt}">
                         <img src="${src}" alt="${alt}" class="w-full h-full object-cover">
-                    </div>
+                    </button>
                 `;
             }).join('');
+            bindFullscreenImages();
+        }
+
+        function renderDiplomas() {
+            const diplomaGrid = document.getElementById('diploma-grid');
+            if (!diplomaGrid) return;
+            if (!diplomaItems.length) {
+                diplomaGrid.innerHTML = `<p class="col-span-full text-center text-skin-500">${t('empty_diplomas')}</p>`;
+                return;
+            }
+            diplomaGrid.innerHTML = diplomaItems.map((src, index) => {
+                const ratio = index % 2 === 0 ? 'aspect-[4/5]' : 'aspect-square';
+                const fullSrc = mediaSrc(src);
+                const alt = `Diploma ${index + 1}`;
+                return `
+                    <button type="button" class="gallery-item block rounded-2xl overflow-hidden shadow-sm ${ratio} cursor-pointer hover:opacity-95 transition-opacity" data-fullscreen-src="${fullSrc}" data-fullscreen-alt="${alt}">
+                        <img src="${fullSrc}" alt="${alt}" class="w-full h-full object-cover">
+                    </button>
+                `;
+            }).join('');
+            bindFullscreenImages();
         }
 
         function renderPriceList() {
@@ -967,6 +1193,7 @@
             }
 
             renderGallery();
+            renderDiplomas();
             renderPriceList();
 
             if (!homeGrid) return;
@@ -1024,7 +1251,22 @@
                     duration: s.duration || ''
                 }));
 
-                galleryItems = data.gallery || [];
+                const directoryGallery = await listDirectoryImages('/images');
+                if (directoryGallery.length) {
+                    galleryItems = directoryGallery.map((src, index) => ({
+                        image: src,
+                        altFi: `Galleria kuva ${index + 1}`,
+                        altSv: `Galleri bild ${index + 1}`,
+                        altEn: `Gallery image ${index + 1}`,
+                        altUk: `Зображення галереї ${index + 1}`,
+                        altRu: `Изображение галереи ${index + 1}`
+                    }));
+                } else {
+                    galleryItems = data.gallery || [];
+                }
+
+                const directoryDiplomas = await listDirectoryImages('/images/diploma');
+                diplomaItems = directoryDiplomas.length ? directoryDiplomas : (data.diplomas || []);
             } catch (error) {
                 console.warn('Using empty local content', error);
                 siteMedia = {
@@ -1033,6 +1275,7 @@
                 };
                 proceduresList = [];
                 galleryItems = [];
+                diplomaItems = [];
             }
 
             renderDynamicContent();
