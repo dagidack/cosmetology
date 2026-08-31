@@ -973,10 +973,10 @@
             updateBookingButtonLabel();
             toggleLangMenu(false);
             localStorage.setItem('bcc-lang', safeLang);
-            const url = new URL(window.location.href);
-            url.searchParams.set('lang', safeLang);
-            url.hash = window.location.hash || 'home';
-            history.replaceState({}, '', url);
+
+            const pathParts = window.location.pathname.split('/').filter(Boolean);
+            const currentView = document.getElementById(`view-${pathParts[1] || 'home'}`) ? (pathParts[1] || 'home') : 'home';
+            history.pushState({}, '', '/' + safeLang + '/' + currentView);
             if (typeof renderDynamicContent === 'function') renderDynamicContent();
         }
 
@@ -988,22 +988,26 @@
 
         // --- SPA Routing ---
         window.navigate = function(viewId) {
-            const url = new URL(window.location.href);
-            url.searchParams.set('lang', currentLang || 'fi');
-            url.hash = viewId;
-            history.replaceState({}, '', url);
+            const safeLang = seoConfig[currentLang || 'fi'] ? (currentLang || 'fi') : 'fi';
+            const safeView = document.getElementById(`view-${viewId}`) ? viewId : 'home';
+            history.pushState({}, '', '/' + safeLang + '/' + safeView);
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-            document.getElementById(`view-${viewId}`).classList.add('active');
+            const targetView = document.getElementById(`view-${safeView}`);
+            if (targetView) targetView.classList.add('active');
             window.scrollTo(0, 0);
             document.getElementById('mobile-menu').classList.add('hidden');
         }
 
-        window.addEventListener('hashchange', () => {
-            const viewId = window.location.hash.replace('#', '') || 'home';
-            if (document.getElementById(`view-${viewId}`)) {
-                document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-                document.getElementById(`view-${viewId}`).classList.add('active');
-            }
+        window.addEventListener('popstate', () => {
+            const pathParts = window.location.pathname.split('/').filter(Boolean);
+            const lang = seoConfig[pathParts[0]] ? pathParts[0] : 'fi';
+            const viewId = document.getElementById(`view-${pathParts[1] || 'home'}`) ? (pathParts[1] || 'home') : 'home';
+            currentLang = lang;
+            document.getElementById('current-lang-display').innerText = lang.toUpperCase();
+            document.getElementById('mobile-lang-select').value = lang;
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            const activeView = document.getElementById(`view-${viewId}`);
+            if (activeView) activeView.classList.add('active');
         });
 
         const fullscreenModal = `
@@ -1033,10 +1037,25 @@
             if (event.key === 'Escape') closeFullscreenImage();
         });
 
-        // Open view from URL hash on load
+        // Open view from current pathname on load
         (function initRoute() {
-            const viewId = window.location.hash.replace('#', '') || 'home';
-            if (document.getElementById(`view-${viewId}`)) navigate(viewId);
+            const pathParts = window.location.pathname.split('/').filter(Boolean);
+            const lang = seoConfig[pathParts[0]] ? pathParts[0] : 'fi';
+            const viewId = document.getElementById(`view-${pathParts[1] || 'home'}`) ? (pathParts[1] || 'home') : 'home';
+            const safePath = '/' + lang + '/' + viewId;
+
+            if (window.location.pathname === '/') {
+                history.replaceState({}, '', '/fi/home');
+            } else if (window.location.pathname !== safePath) {
+                history.replaceState({}, '', safePath);
+            }
+
+            currentLang = lang;
+            document.getElementById('current-lang-display').innerText = lang.toUpperCase();
+            document.getElementById('mobile-lang-select').value = lang;
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            const activeView = document.getElementById(`view-${viewId}`);
+            if (activeView) activeView.classList.add('active');
         })();
 
         // Mobile menu toggle
@@ -1357,9 +1376,9 @@
         loadStaticContent();
         initHomeTiltEffects();
 
-        const urlLang = new URLSearchParams(window.location.search).get('lang');
+        const pathParts = window.location.pathname.split('/').filter(Boolean);
         const savedLang = localStorage.getItem('bcc-lang');
-        const initialLang = translations[urlLang] ? urlLang : (translations[savedLang] ? savedLang : 'fi');
+        const initialLang = seoConfig[pathParts[0]] ? pathParts[0] : (translations[savedLang] ? savedLang : 'fi');
         changeLanguage(initialLang);
     </script>
 </body>

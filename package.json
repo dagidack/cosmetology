@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npx --yes serve .",
-    "start": "npx --yes serve ."
+    "dev": "npx --yes serve -s .",
+    "start": "npx --yes serve -s ."
   }
 }
