@@ -1024,32 +1024,39 @@
         let diplomaItems = [];
         let siteMedia = { heroImage: './images/arrangement.png', aboutImage: './images/maria-photo.jpg' };
 
-        async function listDirectoryImages(dirPath) {
-            try {
-                const url = dirPath.startsWith('.') || dirPath.startsWith('/') ? dirPath : `./${dirPath}`;
-                const res = await fetch(url.replace(/^\//, './'), { cache: 'no-store' });
-                if (!res.ok) return [];
+        const gallerySourceFiles = [
+            './images/12232.jpg',
+            './images/12233.jpg',
+            './images/IMG-20250920-WA0025.jpg',
+            './images/arrangement.png',
+            './images/maria-photo.jpg',
+            './images/st.jpg',
+            './images/st-1.jpg',
+            './images/st-2.jpg',
+            './images/st-3.jpg',
+            './images/st-4.jpg',
+            './images/st-5.jpg',
+            './images/st-6.jpg',
+            './images/st-7.jpg',
+            './images/st-8.jpg',
+            './images/st-9.jpg',
+            './images/st-10.jpg',
+            './images/st-11.jpg'
+        ];
 
-                const html = await res.text();
-                const doc = new DOMParser().parseFromString(html, 'text/html');
-                const hrefs = [...doc.querySelectorAll('a')]
-                    .map((link) => link.getAttribute('href'))
-                    .filter(Boolean)
-                    .filter((href) => !href.startsWith('?') && !href.startsWith('../'))
-                    .filter((href) => !href.endsWith('/'));
-
-                const files = hrefs
-                    .map((href) => href.split('/').pop())
-                    .filter((name) => /\.(jpe?g|png|webp|gif|avif|svg)$/i.test(name))
-                    .filter((name) => !/^\.?DS_Store$/i.test(name) && !/^favicon\.svg$/i.test(name))
-                    .map((name) => `${dirPath.replace(/\/$/, '')}/${name}`.replace(/\/\/+/, '/'));
-
-                return [...new Set(files)];
-            } catch (error) {
-                console.warn(`Failed to list images in ${dirPath}`, error);
-                return [];
-            }
-        }
+        const diplomaSourceFiles = [
+            './images/diploma/st.jpg',
+            './images/diploma/st-1.jpg',
+            './images/diploma/st-2.jpg',
+            './images/diploma/st-3.jpg',
+            './images/diploma/st-4.jpg',
+            './images/diploma/st-5.jpg',
+            './images/diploma/st-6.jpg',
+            './images/diploma/st-7.jpg',
+            './images/diploma/st-8.jpg',
+            './images/diploma/st-9.jpg',
+            './images/diploma/st-10.jpg'
+        ];
 
         function t(key) {
             const lang = translations[currentLang] ? currentLang : 'ru';
@@ -1259,22 +1266,23 @@
                     duration: s.duration || ''
                 }));
 
-                const directoryGallery = await listDirectoryImages('/images');
-                if (directoryGallery.length) {
-                    galleryItems = directoryGallery.map((src, index) => ({
-                        image: src,
-                        altFi: `Galleria kuva ${index + 1}`,
-                        altSv: `Galleri bild ${index + 1}`,
-                        altEn: `Gallery image ${index + 1}`,
-                        altUk: `Зображення галереї ${index + 1}`,
-                        altRu: `Изображение галереи ${index + 1}`
-                    }));
-                } else {
-                    galleryItems = data.gallery || [];
-                }
+                galleryItems = gallerySourceFiles.map((src, index) => ({
+                    image: src,
+                    altFi: `Galleria kuva ${index + 1}`,
+                    altSv: `Galleri bild ${index + 1}`,
+                    altEn: `Gallery image ${index + 1}`,
+                    altUk: `Зображення галереї ${index + 1}`,
+                    altRu: `Изображение галереи ${index + 1}`
+                }));
 
-                const directoryDiplomas = await listDirectoryImages('/images/diploma');
-                diplomaItems = directoryDiplomas.length ? directoryDiplomas : (data.diplomas || []);
+                diplomaItems = diplomaSourceFiles;
+
+                if (!galleryItems.length && Array.isArray(data.gallery) && data.gallery.length) {
+                    galleryItems = data.gallery;
+                }
+                if (!diplomaItems.length && Array.isArray(data.diplomas) && data.diplomas.length) {
+                    diplomaItems = data.diplomas;
+                }
             } catch (error) {
                 console.warn('Using empty local content', error);
                 siteMedia = {
@@ -1282,8 +1290,15 @@
                     aboutImage: './images/maria-photo.jpg'
                 };
                 proceduresList = [];
-                galleryItems = [];
-                diplomaItems = [];
+                galleryItems = gallerySourceFiles.map((src, index) => ({
+                    image: src,
+                    altFi: `Galleria kuva ${index + 1}`,
+                    altSv: `Galleri bild ${index + 1}`,
+                    altEn: `Gallery image ${index + 1}`,
+                    altUk: `Зображення галереї ${index + 1}`,
+                    altRu: `Изображение галереи ${index + 1}`
+                }));
+                diplomaItems = diplomaSourceFiles;
             }
 
             renderDynamicContent();
