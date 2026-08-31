@@ -288,7 +288,7 @@
                                 <div class="absolute -top-6 -right-6 w-72 h-72 bg-skin-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
                                 <div class="absolute -bottom-6 -left-6 w-72 h-72 bg-sage-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
                                 <div class="relative rounded-[30px] overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/5]">
-                                    <img id="hero-photo" src="images/arrangement.png" alt="Beauty Care Cosmetology" class="w-full h-full object-cover">
+                                    <img id="hero-photo" src="./images/arrangement.png" alt="Beauty Care Cosmetology" class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
@@ -352,8 +352,8 @@
 
                         <div class="order-1 lg:order-2">
                             <div class="grid grid-cols-2 gap-4 sm:gap-6">
-                                <img src="/images/gift/Business_Card_Mockup_5.jpg" alt="Gift card mockup" class="rounded-[28px] shadow-xl w-full h-full object-cover aspect-[3/4]">
-                                <img src="/images/gift/3.5x2in_Business_Card_Mockup.jpg" alt="Gift card close-up" class="rounded-[28px] shadow-xl w-full h-full object-cover aspect-[3/4] mt-8 sm:mt-12">
+                                <img src="./images/gift/Business_Card_Mockup_5.jpg" alt="Gift card mockup" class="rounded-[28px] shadow-xl w-full h-full object-cover aspect-[3/4]">
+                                <img src="./images/gift/3.5x2in_Business_Card_Mockup.jpg" alt="Gift card close-up" class="rounded-[28px] shadow-xl w-full h-full object-cover aspect-[3/4] mt-8 sm:mt-12">
                             </div>
                         </div>
                     </div>
@@ -367,7 +367,7 @@
                         <div class="relative mb-12 lg:mb-0">
                             <div class="relative max-w-md mx-auto lg:mx-0">
                                 <div class="about-image-arch overflow-hidden shadow-xl aspect-[3/4]">
-    <img id="about-photo" src="images/maria-photo.jpg" alt="Kauneudenhoitaja Maria" class="w-full h-full object-cover">
+    <img id="about-photo" src="./images/maria-photo.jpg" alt="Kauneudenhoitaja Maria" class="w-full h-full object-cover">
 </div>
                                 <div class="absolute top-1/2 -right-4 md:-right-8 transform -translate-y-1/2 bg-white rounded-full w-24 h-24 md:w-28 md:h-28 flex items-center justify-center shadow-lg border border-skin-100">
                                     <span class="font-heading text-[10px] md:text-xs text-skin-800 text-center leading-tight font-medium uppercase tracking-wider px-2" data-i18n="about_badge">Kauneuden-<br>hoitaja</span>
@@ -1016,12 +1016,12 @@
         let proceduresList = [];
         let galleryItems = [];
         let diplomaItems = [];
-        let siteMedia = { heroImage: 'images/arrangement.png', aboutImage: 'images/maria-photo.jpg' };
+        let siteMedia = { heroImage: './images/arrangement.png', aboutImage: './images/maria-photo.jpg' };
 
         async function listDirectoryImages(dirPath) {
             try {
-                const url = dirPath.startsWith('/') ? dirPath : `/${dirPath}`;
-                const res = await fetch(url, { cache: 'no-store' });
+                const url = dirPath.startsWith('.') || dirPath.startsWith('/') ? dirPath : `./${dirPath}`;
+                const res = await fetch(url.replace(/^\//, './'), { cache: 'no-store' });
                 if (!res.ok) return [];
 
                 const html = await res.text();
@@ -1061,7 +1061,9 @@
         function mediaSrc(path) {
             if (!path) return '';
             if (/^https?:\/\//i.test(path)) return path;
-            return path.startsWith('/') ? path : `/${path}`;
+            if (path.startsWith('./') || path.startsWith('../')) return path;
+            if (path.startsWith('/')) return path.replace(/^\//, './');
+            return `./${path}`;
         }
 
         function openFullscreenImage(src, alt = '') {
@@ -1233,13 +1235,13 @@
 
         async function loadStaticContent() {
             try {
-                const res = await fetch('/content/site.json', { cache: 'no-store' });
+                const res = await fetch('./content/site.json', { cache: 'no-store' });
                 if (!res.ok) throw new Error('Local content missing');
                 const data = await res.json();
 
                 siteMedia = {
-                    heroImage: data.heroImage || 'images/arrangement.png',
-                    aboutImage: data.aboutImage || 'images/maria-photo.jpg'
+                    heroImage: data.heroImage || './images/arrangement.png',
+                    aboutImage: data.aboutImage || './images/maria-photo.jpg'
                 };
 
                 proceduresList = (data.services || []).map((s, i) => ({
@@ -1270,8 +1272,8 @@
             } catch (error) {
                 console.warn('Using empty local content', error);
                 siteMedia = {
-                    heroImage: 'images/arrangement.png',
-                    aboutImage: 'images/maria-photo.jpg'
+                    heroImage: './images/arrangement.png',
+                    aboutImage: './images/maria-photo.jpg'
                 };
                 proceduresList = [];
                 galleryItems = [];
