@@ -124,6 +124,31 @@
             letter-spacing: 0.02em;
             font-weight: 500;
         }
+        .home-tilt-wrap {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+        .home-tilt-card {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+            will-change: transform;
+            box-shadow: 0 24px 60px rgba(86, 65, 58, 0.12);
+        }
+        .home-tilt-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+            opacity: 0;
+            transition: opacity 180ms ease-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .home-tilt-wrap:hover .home-tilt-card::after,
+        .home-tilt-card:hover::after {
+            opacity: 1;
+        }
         .title-font {
             font-family: "LagunaC", "Georgia", serif;
             font-weight: 600;
@@ -284,10 +309,10 @@
                         </div>
 
                         <div class="lg:col-span-6 mt-16 lg:mt-0 fade-in-up">
-                            <div class="relative">
+                            <div class="relative home-tilt-wrap">
                                 <div class="absolute -top-6 -right-6 w-72 h-72 bg-skin-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
                                 <div class="absolute -bottom-6 -left-6 w-72 h-72 bg-sage-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
-                                <div class="relative rounded-[30px] overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/5]">
+                                <div class="home-tilt-card relative rounded-[22px] overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/5]">
                                     <img id="hero-photo" src="./images/arrangement.png" alt="Beauty Care Cosmetology" class="w-full h-full object-cover">
                                 </div>
                             </div>
@@ -1195,6 +1220,31 @@
             }).join('');
         }
 
+        function initHomeTiltEffects() {
+            const cards = document.querySelectorAll('.home-tilt-card');
+            cards.forEach((card) => {
+                const wrap = card.closest('.home-tilt-wrap') || card;
+                const reset = () => {
+                    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                    card.style.boxShadow = '0 24px 60px rgba(86, 65, 58, 0.12)';
+                };
+
+                wrap.addEventListener('pointermove', (event) => {
+                    const rect = wrap.getBoundingClientRect();
+                    const px = (event.clientX - rect.left) / rect.width;
+                    const py = (event.clientY - rect.top) / rect.height;
+                    const rotateY = (px - 0.5) * 12;
+                    const rotateX = (0.5 - py) * 12;
+
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    card.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 50px rgba(86, 65, 58, 0.18)`;
+                });
+
+                wrap.addEventListener('pointerleave', reset);
+                reset();
+            });
+        }
+
         function renderDynamicContent() {
             const homeGrid = document.getElementById('home-services-grid');
             const heroPhoto = document.getElementById('hero-photo');
@@ -1228,7 +1278,7 @@
                 const img = mediaSrc(proc.image);
                 const priceLabel = proc.priceLabel || `${proc.price} €`;
                 homeGrid.innerHTML += `
-                    <div class="group bg-skin-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="group home-tilt-card bg-skin-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-56 overflow-hidden relative">
                             <img src="${img}" alt="${displayTitle}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -1305,6 +1355,7 @@
         }
 
         loadStaticContent();
+        initHomeTiltEffects();
 
         const urlLang = new URLSearchParams(window.location.search).get('lang');
         const savedLang = localStorage.getItem('bcc-lang');
