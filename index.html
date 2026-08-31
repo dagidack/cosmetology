@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
+    <base href="/">
     <script defer src="https://analytics.pulsegeonews.com/script.js" data-website-id="0e11c3ac-7ee1-47eb-ae39-c72f5d75dd38"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1118,9 +1119,9 @@
         function mediaSrc(path) {
             if (!path) return '';
             if (/^https?:\/\//i.test(path)) return path;
-            if (path.startsWith('./') || path.startsWith('../')) return path;
-            if (path.startsWith('/')) return path.replace(/^\//, './');
-            return `./${path}`;
+
+            const cleanPath = path.replace(/^[\.\/]+/, '');
+            return '/' + cleanPath;
         }
 
         function openFullscreenImage(src, alt = '') {
