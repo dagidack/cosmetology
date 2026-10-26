@@ -1382,7 +1382,21 @@
 
         const pathParts = window.location.pathname.split('/').filter(Boolean);
         const savedLang = localStorage.getItem('bcc-lang');
-        const initialLang = seoConfig[pathParts[0]] ? pathParts[0] : (translations[savedLang] ? savedLang : 'fi');
+        
+        // Определяем язык устройства пользователя
+        const deviceLang = (navigator.language || navigator.userLanguage).split('-')[0];
+        
+        // Выстраиваем приоритет определения языка
+        let initialLang = 'fi'; // Финский по умолчанию
+
+        if (seoConfig[pathParts[0]]) {
+            initialLang = pathParts[0]; // 1. Язык из URL (например, /en/home)
+        } else if (translations[savedLang]) {
+            initialLang = savedLang;    // 2. Сохраненный выбор пользователя
+        } else if (translations[deviceLang]) {
+            initialLang = deviceLang;   // 3. Язык устройства (если он поддерживается словарем)
+        }
+
         changeLanguage(initialLang);
     </script>
 </body>
