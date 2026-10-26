@@ -1040,17 +1040,29 @@
             if (event.key === 'Escape') closeFullscreenImage();
         });
 
-        // Open view from current pathname on load
+       // Open view from current pathname on load
         (function initRoute() {
             const pathParts = window.location.pathname.split('/').filter(Boolean);
             if (pathParts[0] === 'brunch') return;
-            const lang = seoConfig[pathParts[0]] ? pathParts[0] : 'fi';
+
+            // Определяем язык (URL -> Сохраненный -> Устройство -> Финский)
+            const savedLang = localStorage.getItem('bcc-lang');
+            const deviceLang = (navigator.language || navigator.userLanguage).split('-')[0];
+            
+            let lang = 'fi';
+            if (pathParts.length > 0 && seoConfig[pathParts[0]]) {
+                lang = pathParts[0]; // приоритет языку из URL
+            } else if (translations[savedLang]) {
+                lang = savedLang;    // затем сохраненному
+            } else if (translations[deviceLang]) {
+                lang = deviceLang;   // затем языку устройства
+            }
+
             const viewId = document.getElementById(`view-${pathParts[1] || 'home'}`) ? (pathParts[1] || 'home') : 'home';
             const safePath = '/' + lang + '/' + viewId;
 
-            if (window.location.pathname === '/') {
-                history.replaceState({}, '', '/fi/home');
-            } else if (window.location.pathname !== safePath) {
+            // Динамически подставляем правильный язык вместо жесткого '/fi/home'
+            if (window.location.pathname === '/' || window.location.pathname !== safePath) {
                 history.replaceState({}, '', safePath);
             }
 
@@ -1397,7 +1409,7 @@
             initialLang = deviceLang;   // 3. Язык устройства (если он поддерживается словарем)
         }
 
-        changeLanguage(initialLang);
+        changeLanguage(currentLang);
     </script>
 </body>
 </html>
