@@ -158,14 +158,16 @@
             overflow: hidden;
             background: #12080a;
         }
-        .hero-photo {
+        .hero-photo,
+        .hero-video {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 62% 22%;
+            object-position: center;
             filter: saturate(0.95) contrast(1.08);
+            pointer-events: none;
         }
         .hero-veil {
             position: absolute;
@@ -501,7 +503,10 @@
     </header>
 
     <section class="hero">
-        <img class="hero-photo" src="images/brunch/hero.png" alt="New Year's Brunch, Estetiikka">
+        <video class="hero-video" autoplay muted loop playsinline poster="images/brunch/hero.png">
+            <source src="images/brunch/hero.mp4" type="video/mp4">
+            <img class="hero-photo" src="images/brunch/hero.png" alt="New Year's Brunch, Estetiikka">
+        </video>
         <div class="hero-veil"></div>
         <div class="sparkle"></div>
         <div class="grain"></div>
