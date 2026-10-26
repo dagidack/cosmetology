@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/brunch", "destination": "/brunch.html" },
+    { "source": "/brunch/", "destination": "/brunch.html" },
+    { "source": "/**", "destination": "/index.html" }
+  ]
+}
