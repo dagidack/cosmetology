@@ -830,7 +830,15 @@
         }
 
         const saved = localStorage.getItem('bcc-lang');
-        applyLang(translations[saved] ? saved : 'fi');
+        
+        // Определяем базовый код языка устройства (например, 'ru', 'en')
+        const deviceLang = (navigator.language || navigator.userLanguage).split('-')[0];
+        
+        // Логика выбора: сохраненный язык -> язык устройства (если есть перевод) -> финский по умолчанию
+        const defaultLang = translations[deviceLang] ? deviceLang : 'fi';
+        const finalLang = translations[saved] ? saved : defaultLang;
+
+        applyLang(finalLang);
         select.addEventListener('change', () => applyLang(select.value));
     </script>
 </body>
