@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>New Year's Brunch · 26.12 · Estetiikka Rauma</title>
+    <meta name="description" id="meta-description" content="New Year's Brunch 26.12.2026 Raumalla. Mini-kasvohoito, pöytä ja kuohuvaa Taika Studiossa. Ilmoittaudu 24.12. mennessä.">
+    <link rel="canonical" href="https://www.estetiikka.com/brunch">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Estetiikka">
+    <meta property="og:title" content="New Year's Brunch · 26.12 · Estetiikka">
+    <meta property="og:description" content="26. joulukuuta klo 12–15. Mini-kasvohoito, pöytä ja kuohuvaa. Taika Studio, Rauma.">
+    <meta property="og:url" content="https://www.estetiikka.com/brunch">
+    <meta property="og:image" content="https://www.estetiikka.com/images/brunch/poster.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "New Year's Brunch",
+        "startDate": "2026-12-26T12:00:00+02:00",
+        "endDate": "2026-12-26T15:00:00+02:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+            "@type": "Place",
+            "name": "Taika Studio",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Aittakarinkatu 12",
+                "addressLocality": "Rauma",
+                "postalCode": "26100",
+                "addressCountry": "FI"
+            }
+        },
+        "organizer": {
+            "@type": "BeautySalon",
+            "name": "Estetiikka",
+            "url": "https://www.estetiikka.com/",
+            "telephone": "+358404493495"
+        },
+        "image": "https://www.estetiikka.com/images/brunch/poster.jpg",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Mini-hoito ja pöytä",
+                "price": "30",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/LimitedAvailability",
+                "validThrough": "2026-12-24"
+            },
+            {
+                "@type": "Offer",
+                "name": "Pöytä ilman hoitoa",
+                "price": "15",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/LimitedAvailability",
+                "validThrough": "2026-12-24"
+            }
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #050403;
+            --ink: #10090a;
+            --velvet: #4a1018;
+            --wine: #7a1e2c;
+            --gold: #c9a56a;
+            --gold-soft: #ead7b0;
+            --ivory: #f6efe4;
+            --mute: rgba(246, 239, 228, 0.62);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--black);
+            color: var(--ivory);
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 21px;
+            line-height: 1.45;
+            overflow-x: hidden;
+        }
+        a { color: inherit; }
+        img { max-width: 100%; display: block; }
+        .sans {
+            font-family: Jost, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+        .wrap {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+        .gold { color: var(--gold-soft); }
+        .hairline {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.5;
+        }
+
+        .topbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 30;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 28px;
+        }
+        .wordmark {
+            font-family: "Bodoni Moda", serif;
+            font-size: 15px;
+            letter-spacing: 0.38em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .wordmark span {
+            display: block;
+            font-family: Jost, sans-serif;
+            font-size: 8px;
+            letter-spacing: 0.32em;
+            opacity: 0.65;
+            margin-top: 5px;
+        }
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .lang {
+            background: rgba(5,4,3,0.35);
+            color: var(--ivory);
+            border: 1px solid rgba(201, 165, 106, 0.4);
+            padding: 8px 11px;
+            font-family: Jost, sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        .topbar a.salon {
+            text-decoration: none;
+            opacity: 0.85;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            overflow: hidden;
+            background: #12080a;
+        }
+        .hero-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 62% 22%;
+            filter: saturate(0.95) contrast(1.08);
+        }
+        .hero-veil {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 72% 18%, rgba(122, 30, 44, 0.18), transparent 40%),
+                linear-gradient(180deg, rgba(5,4,3,0.55) 0%, rgba(5,4,3,0.12) 28%, rgba(5,4,3,0.08) 55%, rgba(5,4,3,0.78) 100%);
+        }
+        .sparkle, .grain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .sparkle {
+            background-image:
+                radial-gradient(1.6px 1.6px at 11% 16%, rgba(234,215,176,0.95), transparent),
+                radial-gradient(1px 1px at 82% 10%, rgba(255,255,255,0.75), transparent),
+                radial-gradient(1.8px 1.8px at 91% 38%, rgba(234,215,176,0.7), transparent),
+                radial-gradient(1px 1px at 18% 70%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(2px 2px at 68% 82%, rgba(234,215,176,0.55), transparent),
+                radial-gradient(1px 1px at 44% 8%, rgba(255,255,255,0.55), transparent),
+                radial-gradient(1.4px 1.4px at 6% 42%, rgba(234,215,176,0.5), transparent);
+            animation: twinkle 5.5s ease-in-out infinite;
+        }
+        .grain {
+            opacity: 0.18;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        .hero-frame {
+            position: absolute;
+            inset: 18px;
+            border: 1px solid rgba(201,165,106,0.28);
+            pointer-events: none;
+            z-index: 3;
+        }
+        .hero-copy {
+            position: relative;
+            z-index: 4;
+            padding: 15vh 6vw 0;
+            display: grid;
+            justify-items: center;
+        }
+        .lockup {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            column-gap: 28px;
+            row-gap: 0;
+            text-align: center;
+        }
+        .hero-sub {
+            grid-column: 1 / -1;
+            font-family: "Bodoni Moda", serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: clamp(22px, 3.4vw, 42px);
+            letter-spacing: 0.46em;
+            text-transform: uppercase;
+            text-shadow: 0 8px 30px rgba(0,0,0,0.45);
+        }
+        .hero-title {
+            font-family: "Bodoni Moda", serif;
+            font-weight: 500;
+            font-size: clamp(72px, 14vw, 168px);
+            line-height: 0.78;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            text-shadow: 0 18px 50px rgba(0,0,0,0.5);
+        }
+        .hero-date {
+            text-align: left;
+            padding-bottom: 1.1em;
+            color: var(--gold-soft);
+        }
+        .hero-date b {
+            display: block;
+            font-family: "Bodoni Moda", serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(28px, 3.6vw, 46px);
+            letter-spacing: 0.08em;
+            line-height: 1;
+        }
+        .hero-date span {
+            display: block;
+            margin-top: 8px;
+            letter-spacing: 0.42em;
+        }
+        .hero-kicker {
+            margin-top: 22px;
+            color: var(--gold-soft);
+            text-shadow: 0 4px 18px rgba(0,0,0,0.5);
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 28px;
+            left: 0;
+            right: 0;
+            z-index: 4;
+            text-align: center;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        section { padding: 96px 0; }
+        .section-kicker { color: var(--gold-soft); margin-bottom: 14px; }
+        .section-title {
+            font-family: "Bodoni Moda", serif;
+            font-size: clamp(40px, 6.4vw, 72px);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            line-height: 0.92;
+            margin-bottom: 24px;
+        }
+        .lead {
+            max-width: 560px;
+            font-size: clamp(22px, 2.3vw, 28px);
+            font-weight: 400;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(201,165,106,0.32);
+            margin-top: 64px;
+            border: 1px solid rgba(201,165,106,0.32);
+        }
+        .fact {
+            background: linear-gradient(180deg, rgba(74,16,24,0.45), var(--ink));
+            padding: 30px 26px;
+        }
+        .fact b {
+            display: block;
+            font-family: "Bodoni Moda", serif;
+            font-size: 30px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .program {
+            background:
+                radial-gradient(ellipse at 8% 0%, rgba(122,30,44,0.38), transparent 48%),
+                var(--ink);
+        }
+        .program-grid {
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 72px;
+            align-items: start;
+        }
+        .program-photo {
+            position: sticky;
+            top: 28px;
+        }
+        .program-photo img {
+            width: 100%;
+            height: auto;
+            filter: contrast(1.06) saturate(0.96);
+        }
+        .program-photo::after {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(201,165,106,0.5);
+            pointer-events: none;
+        }
+        .list { list-style: none; }
+        .list li {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 12px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(201,165,106,0.18);
+        }
+        .list li:last-child { border-bottom: 0; }
+        .num {
+            color: var(--gold);
+            font-family: "Bodoni Moda", serif;
+            font-size: 22px;
+            font-style: italic;
+        }
+        .list h3 {
+            font-family: "Bodoni Moda", serif;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .list p {
+            color: var(--mute);
+            font-size: 19px;
+        }
+
+        .tickets {
+            background:
+                linear-gradient(180deg, #1a0b0e 0%, #050403 100%);
+        }
+        .ticket-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 40px;
+        }
+        .ticket {
+            position: relative;
+            border: 1px solid rgba(201,165,106,0.42);
+            padding: 44px 38px;
+            background:
+                linear-gradient(165deg, rgba(74,16,24,0.55), rgba(5,4,3,0.2));
+            overflow: hidden;
+        }
+        .ticket.featured {
+            background: linear-gradient(165deg, rgba(122,30,44,0.78), rgba(16,9,10,0.45));
+        }
+        .ticket::before,
+        .ticket::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 1px solid rgba(201,165,106,0.7);
+        }
+        .ticket::before { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+        .ticket::after { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+        .price {
+            font-family: "Bodoni Moda", serif;
+            font-size: 80px;
+            line-height: 0.9;
+            margin: 18px 0 14px;
+        }
+        .price span {
+            font-size: 28px;
+            margin-left: 2px;
+        }
+
+        .place-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 52px;
+            align-items: center;
+        }
+        .map {
+            width: 100%;
+            height: 440px;
+            border: 1px solid rgba(201,165,106,0.28);
+            filter: grayscale(0.4) contrast(1.08) saturate(0.65);
+        }
+
+        .rsvp {
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(122,30,44,0.42), transparent 55%),
+                var(--black);
+        }
+        .rsvp .lead { margin: 0 auto; }
+        .cta-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 230px;
+            padding: 17px 28px;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            font-family: Jost, sans-serif;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+        .btn.solid {
+            background: var(--gold);
+            color: #1a120c;
+        }
+        .btn.ghost { color: var(--gold-soft); }
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 30px;
+        }
+        .socials a {
+            color: var(--gold-soft);
+            text-decoration: none;
+        }
+
+        footer.page-foot {
+            padding: 28px 32px 40px;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            color: var(--mute);
+            font-size: 17px;
+        }
+        footer.page-foot a { color: var(--gold-soft); text-decoration: none; }
+
+        @media (max-width: 900px) {
+            .wordmark span { display: none; }
+            .topbar { padding: 16px 14px; }
+            .hero-copy { padding: 12vh 20px 0; }
+            .hero-photo { object-position: 70% 14%; }
+            .lockup { grid-template-columns: 1fr; justify-items: center; }
+            .hero-date { text-align: center; padding-bottom: 0; margin-top: 10px; }
+            .facts, .program-grid, .ticket-grid, .place-grid { grid-template-columns: 1fr; }
+            .program-photo { position: static; }
+            .program-photo img { height: 520px; }
+            .facts { margin-top: 36px; }
+            section { padding: 68px 0; }
+            .price { font-size: 64px; }
+            .hero-frame { inset: 10px; }
+            footer.page-foot { flex-direction: column; padding: 24px 20px 36px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="wordmark" href="/fi/home">Estetiikka<span>Beauty Care &amp; Cosmetology</span></a>
+        <div class="topbar-right">
+            <a class="salon sans" href="/fi/home" data-i18n="nav_salon">Salonki</a>
+            <select class="lang" id="lang" aria-label="Language"></select>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img class="hero-photo" src="images/brunch/hero.jpg" alt="New Year's Brunch, Estetiikka">
+        <div class="hero-veil"></div>
+        <div class="sparkle"></div>
+        <div class="grain"></div>
+        <div class="hero-frame"></div>
+        <div class="hero-copy">
+            <div class="lockup">
+                <p class="hero-sub">New Year's</p>
+                <h1 class="hero-title">Brunch</h1>
+                <p class="hero-date"><b>26.12</b><span class="sans">Rauma</span></p>
+            </div>
+            <p class="sans hero-kicker" data-i18n="kicker">Naisille · 12:00–15:00</p>
+        </div>
+        <a class="hero-scroll sans" href="#intro">↓</a>
+    </section>
+
+    <section id="intro">
+        <div class="wrap">
+            <p class="sans section-kicker" data-i18n="intro_label">26. joulukuuta 2026</p>
+            <h2 class="section-title" data-i18n="intro_title">Joulun ja uuden vuoden välissä.</h2>
+            <p class="lead" data-i18n="intro_lead">Mini-kasvohoito, pöytä ja lasi kuohuvaa. Kolme tuntia Taika Studiossa — naisille, ilman isoa ohjelmaa.</p>
+            <div class="facts">
+                <div class="fact"><span class="sans gold" data-i18n="fact_date_l">Päivä</span><b>26.12.2026</b></div>
+                <div class="fact"><span class="sans gold" data-i18n="fact_time_l">Aika</span><b>12:00–15:00</b></div>
+                <div class="fact"><span class="sans gold" data-i18n="fact_place_l">Paikka</span><b>Taika Studio</b></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program">
+        <div class="wrap program-grid">
+            <div class="program-photo">
+                <img src="images/brunch/poster.jpg" alt="New Year's Brunch">
+            </div>
+            <div>
+                <p class="sans section-kicker" data-i18n="program_label">Ohjelma</p>
+                <h2 class="section-title" data-i18n="program_title">Iltapäivä</h2>
+                <ul class="list">
+                    <li>
+                        <span class="num">01</span>
+                        <div>
+                            <h3 data-i18n="p1_t">Mini-hoito</h3>
+                            <p data-i18n="p1_d">Entsyymikuorinta ja lifting-hieronta.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="num">02</span>
+                        <div>
+                            <h3 data-i18n="p2_t">GIGI</h3>
+                            <p data-i18n="p2_d">Lifting-naamio ja viimeistelevä voide.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="num">03</span>
+                        <div>
+                            <h3 data-i18n="p3_t">Pöytä</h3>
+                            <p data-i18n="p3_d">Kahvi, suolaiset, lasi kuohuvaa.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="num">04</span>
+                        <div>
+                            <h3 data-i18n="p4_t">Kuva</h3>
+                            <p data-i18n="p4_d">Nurkkaus valokuvaa varten.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="num">05</span>
+                        <div>
+                            <h3 data-i18n="p5_t">Kortti vuodelle</h3>
+                            <p data-i18n="p5_d">Lyhyt ennustus — ilman show'ta.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="num">06</span>
+                        <div>
+                            <h3 data-i18n="p6_t">Arvonta</h3>
+                            <p data-i18n="p6_d">Pullo samppanjaa vieraiden kesken.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="tickets" id="tickets">
+        <div class="wrap">
+            <p class="sans section-kicker" data-i18n="price_label">Hinta</p>
+            <h2 class="section-title" data-i18n="price_title">Kaksi paikkaa</h2>
+            <div class="ticket-grid">
+                <article class="ticket featured">
+                    <p class="sans" data-i18n="t1_k">Hoito ja pöytä</p>
+                    <p class="price">30<span>€</span></p>
+                    <p data-i18n="t1_d">Mini-kasvohoito, naamio GIGI, paikka pöydässä.</p>
+                </article>
+                <article class="ticket">
+                    <p class="sans" data-i18n="t2_k">Vain pöytä</p>
+                    <p class="price">15<span>€</span></p>
+                    <p data-i18n="t2_d">Kahvi, suolaiset ja kuohuvaa — ilman hoitoa.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="place">
+        <div class="wrap place-grid">
+            <div>
+                <p class="sans section-kicker" data-i18n="place_label">Osoite</p>
+                <h2 class="section-title">Taika Studio</h2>
+                <p class="lead">Aittakarinkatu 12<br>26100 Rauma</p>
+                <p class="lead" style="margin-top:22px;color:var(--mute)" data-i18n="place_note">Keskusta. Studio on pieni — paikka varataan etukäteen.</p>
+            </div>
+            <iframe class="map" title="Taika Studio Rauma" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Aittakarinkatu%2012%2C%2026100%20Rauma&amp;z=16&amp;output=embed"></iframe>
+        </div>
+    </section>
+
+    <div class="hairline wrap"></div>
+
+    <section class="rsvp" id="rsvp">
+        <div class="wrap">
+            <p class="sans section-kicker" data-i18n="rsvp_label">Ilmoittautuminen</p>
+            <h2 class="section-title" data-i18n="rsvp_title">Viimeistään 24.12.</h2>
+            <p class="lead" data-i18n="rsvp_lead">Instagram, Facebook tai puhelin. Nimi ja kumman lipun otat.</p>
+            <div class="cta-row">
+                <a class="btn solid" href="tel:+358404493495">+358 40 449 3495</a>
+                <a class="btn ghost" id="wa" href="https://wa.me/358404493495">WhatsApp</a>
+            </div>
+            <div class="socials sans">
+                <a href="https://www.instagram.com/estetiikka.bcc/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.facebook.com/estetiikka.bcc" target="_blank" rel="noopener">Facebook</a>
+                <a href="mailto:info@estetiikka.com">info@estetiikka.com</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="page-foot">
+        <span>Estetiikka · Rauma</span>
+        <a href="/fi/home" data-i18n="nav_salon">Salonki</a>
+    </footer>
+
+    <script>
+        const translations = {
+            fi: {
+                meta: "New Year's Brunch 26.12.2026 Raumalla. Mini-kasvohoito, pöytä ja kuohuvaa Taika Studiossa.",
+                nav_salon: "Salonki",
+                kicker: "Naisille · 12:00–15:00",
+                intro_label: "26. joulukuuta 2026",
+                intro_title: "Joulun ja uuden vuoden välissä.",
+                intro_lead: "Mini-kasvohoito, pöytä ja lasi kuohuvaa. Kolme tuntia Taika Studiossa — naisille, ilman isoa ohjelmaa.",
+                fact_date_l: "Päivä",
+                fact_time_l: "Aika",
+                fact_place_l: "Paikka",
+                program_label: "Ohjelma",
+                program_title: "Iltapäivä",
+                p1_t: "Mini-hoito", p1_d: "Entsyymikuorinta ja lifting-hieronta.",
+                p2_t: "GIGI", p2_d: "Lifting-naamio ja viimeistelevä voide.",
+                p3_t: "Pöytä", p3_d: "Kahvi, suolaiset, lasi kuohuvaa.",
+                p4_t: "Kuva", p4_d: "Nurkkaus valokuvaa varten.",
+                p5_t: "Kortti vuodelle", p5_d: "Lyhyt ennustus — ilman show'ta.",
+                p6_t: "Arvonta", p6_d: "Pullo samppanjaa vieraiden kesken.",
+                price_label: "Hinta",
+                price_title: "Kaksi paikkaa",
+                t1_k: "Hoito ja pöytä",
+                t1_d: "Mini-kasvohoito, naamio GIGI, paikka pöydässä.",
+                t2_k: "Vain pöytä",
+                t2_d: "Kahvi, suolaiset ja kuohuvaa — ilman hoitoa.",
+                place_label: "Osoite",
+                place_note: "Keskusta. Studio on pieni — paikka varataan etukäteen.",
+                rsvp_label: "Ilmoittautuminen",
+                rsvp_title: "Viimeistään 24.12.",
+                rsvp_lead: "Instagram, Facebook tai puhelin. Nimi ja kumman lipun otat.",
+                wa: "Hei! Haluan ilmoittautua New Year's Brunchille 26.12."
+            },
+            ru: {
+                meta: "New Year's Brunch 26.12.2026 в Рауме. Мини-уход, стол и игристое в Taika Studio.",
+                nav_salon: "Салон",
+                kicker: "Для женщин · 12:00–15:00",
+                intro_label: "26 декабря 2026",
+                intro_title: "Между Рождеством и Новым годом.",
+                intro_lead: "Мини-уход, стол и бокал игристого. Три часа в Taika Studio — только женщины, без большой программы.",
+                fact_date_l: "Дата",
+                fact_time_l: "Время",
+                fact_place_l: "Место",
+                program_label: "Программа",
+                program_title: "День",
+                p1_t: "Мини-уход", p1_d: "Энзимный пилинг и лифтинг-массаж.",
+                p2_t: "GIGI", p2_d: "Лифтинг-маска и завершающий крем.",
+                p3_t: "Стол", p3_d: "Кофе, закуски, бокал игристого.",
+                p4_t: "Кадр", p4_d: "Уголок для фото.",
+                p5_t: "Карточка на год", p5_d: "Короткое предсказание — без шоу.",
+                p6_t: "Розыгрыш", p6_d: "Бутылка шампанского среди гостей.",
+                price_label: "Стоимость",
+                price_title: "Два места",
+                t1_k: "Уход и стол",
+                t1_d: "Мини-процедура, маска GIGI, место за столом.",
+                t2_k: "Только стол",
+                t2_d: "Кофе, закуски и игристое — без процедуры.",
+                place_label: "Адрес",
+                place_note: "Центр. Студия небольшая — место бронируют заранее.",
+                rsvp_label: "Запись",
+                rsvp_title: "До 24 декабря",
+                rsvp_lead: "Instagram, Facebook или телефон. Имя и какой билет берёте.",
+                wa: "Здравствуйте! Хочу записаться на New Year's Brunch 26.12."
+            },
+            en: {
+                meta: "New Year's Brunch 26 Dec 2026 in Rauma. A mini facial, a table and sparkling wine at Taika Studio.",
+                nav_salon: "Salon",
+                kicker: "For women · 12:00–15:00",
+                intro_label: "26 December 2026",
+                intro_title: "Between Christmas and the new year.",
+                intro_lead: "A mini facial, a table and a glass of sparkling. Three hours at Taika Studio — women only, no big programme.",
+                fact_date_l: "Date",
+                fact_time_l: "Time",
+                fact_place_l: "Place",
+                program_label: "Programme",
+                program_title: "The afternoon",
+                p1_t: "Mini facial", p1_d: "Enzyme peel and lifting massage.",
+                p2_t: "GIGI", p2_d: "Lifting mask and finishing cream.",
+                p3_t: "Table", p3_d: "Coffee, savoury bites, a glass of sparkling.",
+                p4_t: "Picture", p4_d: "A corner for a photograph.",
+                p5_t: "A card for the year", p5_d: "A short fortune — no show.",
+                p6_t: "Draw", p6_d: "A bottle of champagne among the guests.",
+                price_label: "Tickets",
+                price_title: "Two seats",
+                t1_k: "Treatment and table",
+                t1_d: "Mini facial, GIGI mask, a seat at the table.",
+                t2_k: "Table only",
+                t2_d: "Coffee, bites and sparkling — no treatment.",
+                place_label: "Address",
+                place_note: "Town centre. The studio is small — a seat is reserved in advance.",
+                rsvp_label: "RSVP",
+                rsvp_title: "By 24 December",
+                rsvp_lead: "Instagram, Facebook or phone. Your name and which ticket.",
+                wa: "Hello! I would like to join the New Year's Brunch on 26.12."
+            },
+            sv: {
+                meta: "New Year's Brunch 26.12.2026 i Raumo. Mini-ansiktsbehandling, bord och bubbel på Taika Studio.",
+                nav_salon: "Salong",
+                kicker: "För kvinnor · 12:00–15:00",
+                intro_label: "26 december 2026",
+                intro_title: "Mellan jul och nyår.",
+                intro_lead: "Mini-ansiktsbehandling, bord och ett glas bubbel. Tre timmar på Taika Studio — endast kvinnor, utan stort program.",
+                fact_date_l: "Datum",
+                fact_time_l: "Tid",
+                fact_place_l: "Plats",
+                program_label: "Program",
+                program_title: "Eftermiddagen",
+                p1_t: "Mini-behandling", p1_d: "Enzympeeling och liftingmassage.",
+                p2_t: "GIGI", p2_d: "Liftingmask och avslutande kräm.",
+                p3_t: "Bord", p3_d: "Kaffe, tilltugg, ett glas bubbel.",
+                p4_t: "Bild", p4_d: "Hörna för foto.",
+                p5_t: "Ett kort för året", p5_d: "En kort spådom — utan show.",
+                p6_t: "Utlottning", p6_d: "En flaska champagne bland gästerna.",
+                price_label: "Pris",
+                price_title: "Två platser",
+                t1_k: "Behandling och bord",
+                t1_d: "Mini-ansiktsbehandling, GIGI-mask, plats vid bordet.",
+                t2_k: "Endast bord",
+                t2_d: "Kaffe, tilltugg och bubbel — utan behandling.",
+                place_label: "Adress",
+                place_note: "Centrum. Studion är liten — plats bokas i förväg.",
+                rsvp_label: "Anmälan",
+                rsvp_title: "Senast 24 december",
+                rsvp_lead: "Instagram, Facebook eller telefon. Namn och vilken biljett.",
+                wa: "Hej! Jag vill anmäla mig till New Year's Brunch 26.12."
+            },
+            uk: {
+                meta: "New Year's Brunch 26.12.2026 у Раумі. Міні-догляд, стіл і ігристе в Taika Studio.",
+                nav_salon: "Салон",
+                kicker: "Для жінок · 12:00–15:00",
+                intro_label: "26 грудня 2026",
+                intro_title: "Між Різдвом і Новим роком.",
+                intro_lead: "Міні-догляд, стіл і келих ігристого. Три години в Taika Studio — лише жінки, без великої програми.",
+                fact_date_l: "Дата",
+                fact_time_l: "Час",
+                fact_place_l: "Місце",
+                program_label: "Програма",
+                program_title: "День",
+                p1_t: "Міні-догляд", p1_d: "Ензимний пілінг і ліфтинг-масаж.",
+                p2_t: "GIGI", p2_d: "Ліфтинг-маска і завершальний крем.",
+                p3_t: "Стіл", p3_d: "Кава, закуски, келих ігристого.",
+                p4_t: "Кадр", p4_d: "Куточок для фото.",
+                p5_t: "Картка на рік", p5_d: "Коротке передбачення — без шоу.",
+                p6_t: "Розіграш", p6_d: "Пляшка шампанського серед гостей.",
+                price_label: "Вартість",
+                price_title: "Два місця",
+                t1_k: "Догляд і стіл",
+                t1_d: "Міні-процедура, маска GIGI, місце за столом.",
+                t2_k: "Лише стіл",
+                t2_d: "Кава, закуски й ігристе — без процедури.",
+                place_label: "Адреса",
+                place_note: "Центр. Студія невелика — місце бронюють заздалегідь.",
+                rsvp_label: "Запис",
+                rsvp_title: "До 24 грудня",
+                rsvp_lead: "Instagram, Facebook або телефон. Ім'я і який квиток берете.",
+                wa: "Вітаю! Хочу записатися на New Year's Brunch 26.12."
+            }
+        };
+
+        const select = document.getElementById('lang');
+        const langs = [
+            { id: 'fi', label: 'FI' },
+            { id: 'sv', label: 'SV' },
+            { id: 'en', label: 'EN' },
+            { id: 'uk', label: 'UK' },
+            { id: 'ru', label: 'RU' }
+        ];
+        langs.forEach((item) => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.label;
+            select.appendChild(option);
+        });
+
+        function applyLang(lang) {
+            const pack = translations[lang] || translations.fi;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (pack[key]) el.textContent = pack[key];
+            });
+            document.getElementById('meta-description').setAttribute('content', pack.meta);
+            document.getElementById('wa').href = 'https://wa.me/358404493495?text=' + encodeURIComponent(pack.wa);
+            localStorage.setItem('bcc-lang', lang);
+            select.value = lang;
+        }
+
+        const saved = localStorage.getItem('bcc-lang');
+        applyLang(translations[saved] ? saved : 'fi');
+        select.addEventListener('change', () => applyLang(select.value));
+    </script>
+</body>
+</html>
